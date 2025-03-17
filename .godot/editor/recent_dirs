@@ -1,3 +1,4 @@
+res://actions/enemy_actions/attack_actions
 res://enemy_battler
 res://actions/ally_actions/magic_actions/offensive_magic_actions
 res://actions/ally_actions/magic_actions/healing_magic_actions
@@ -9,7 +10,6 @@ res://battles
 res://ally_battler
 res://assets/sprites/eye_sprites
 res://enemy_stats
-res://enemy_actions
 res://assets/sprites/samir_sprites/01_idle
 res://battle
 res://base_resource_classes

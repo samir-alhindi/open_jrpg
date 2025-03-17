@@ -169,6 +169,8 @@ func perform_action() -> void:
 			#endregion
 		elif actionToPerform is AllyMagicAction:
 			pass
+	# Clear target battlers array:
+	targetBattlers.clear()
 	# Signal to the battle node that we're done:
 	performing_action_finished.emit()
 

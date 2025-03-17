@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EnemyStats" load_steps=19 format=3 uid="uid://cc6dqtmkwgtre"]
 
 [ext_resource type="Script" path="res://base_resource_classes/enemy_action.gd" id="1_2t8ik"]
-[ext_resource type="Resource" uid="uid://bgonweol8qdwu" path="res://enemy_actions/enemy_laser_attack.tres" id="2_fbybg"]
+[ext_resource type="Resource" uid="uid://lfvsqt8r3mpq" path="res://actions/enemy_actions/attack_actions/defend.tres" id="2_hmqsx"]
 [ext_resource type="Script" path="res://base_resource_classes/enemy_stats.gd" id="2_ilxkb"]
-[ext_resource type="Resource" uid="uid://btkl2o5as1017" path="res://enemy_actions/enemy_blast_attack.tres" id="3_umii0"]
+[ext_resource type="Resource" uid="uid://wb66qtwf3pgg" path="res://actions/enemy_actions/attack_actions/laser.tres" id="2_qxdyl"]
 [ext_resource type="Texture2D" uid="uid://cbhq210ltig1c" path="res://assets/sprites/eye_sprites/Eyeball.png" id="5_rlgsb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h72jt"]
@@ -122,12 +122,12 @@ animations = [{
 script = ExtResource("2_ilxkb")
 name = "Eye"
 texture_scale = 2.0
-actions = Array[ExtResource("1_2t8ik")]([ExtResource("2_fbybg"), ExtResource("3_umii0")])
+actions = Array[ExtResource("1_2t8ik")]([ExtResource("2_hmqsx"), ExtResource("2_qxdyl")])
 health = 120
 strength = -50
 defense = 10
 magicStrength = -10
-speed = 10
+speed = 50
 defeatedText = "burst into goo !"
 createTemplate = false
 spriteFrames = SubResource("SpriteFrames_tjumr")

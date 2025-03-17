@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="AllyStats" load_steps=21 format=3 uid="uid://bbwdd2xv1bf1i"]
+[gd_resource type="Resource" script_class="AllyStats" load_steps=19 format=3 uid="uid://bbwdd2xv1bf1i"]
 
-[ext_resource type="Script" path="res://base_resource_classes/ally_action.gd" id="1_cmxbc"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="1_xwhoi"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_attack_action.gd" id="1_y8gyu"]
 [ext_resource type="Resource" uid="uid://ckklasiaojc3n" path="res://actions/ally_actions/attack_actions/punch.tres" id="2_lpi16"]
+[ext_resource type="Resource" uid="uid://dtv4tf41ul5p" path="res://actions/ally_actions/defend_actions/defend.tres" id="3_2t8cm"]
 [ext_resource type="Theme" uid="uid://bq1murg03asq7" path="res://UI/maria_theme.tres" id="3_axd84"]
-[ext_resource type="AudioStream" uid="uid://dvtjus8g8ufr4" path="res://assets/SFX/defend.wav" id="4_iortr"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_item_action.gd" id="5_ggp6d"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_magic_action.gd" id="6_ds7we"]
 [ext_resource type="Resource" uid="uid://qs2uxjyytj0e" path="res://actions/ally_actions/magic_actions/healing_magic_actions/single_heal.tres" id="7_nx2dx"]
@@ -18,12 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://b1q2lcsskmbq0" path="res://assets/sprites/maria_sprites/idle_6.png" id="14_x1cdg"]
 [ext_resource type="Texture2D" uid="uid://dmshq2ikibmon" path="res://assets/sprites/maria_sprites/idle_7.png" id="15_m0vje"]
 [ext_resource type="Texture2D" uid="uid://bip3pf3keaepo" path="res://assets/sprites/maria_sprites/idle_8.png" id="16_ysyt0"]
-
-[sub_resource type="Resource" id="Resource_7htxk"]
-script = ExtResource("1_cmxbc")
-actionText = "took gaurd !"
-actionName = "Defend"
-sound = ExtResource("4_iortr")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sxyxg"]
 animations = [{
@@ -84,7 +77,7 @@ ui_theme = ExtResource("3_axd84")
 texture_scale = 2.0
 can_use_magic = true
 attackActions = Array[ExtResource("1_y8gyu")]([ExtResource("2_lpi16")])
-defendAction = SubResource("Resource_7htxk")
+defendAction = ExtResource("3_2t8cm")
 magicActions = Array[ExtResource("6_ds7we")]([ExtResource("8_2ah47"), ExtResource("7_nx2dx")])
 items = Array[ExtResource("5_ggp6d")]([])
 health = 150

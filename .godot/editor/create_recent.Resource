@@ -1,3 +1,5 @@
+EnemyDefendAction
+EnemyAttackAction
 AllyOffensiveMagicAction
 AllyHealingMagicAction
 AllyDefendAction

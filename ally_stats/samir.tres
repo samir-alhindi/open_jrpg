@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="AllyStats" load_steps=21 format=3 uid="uid://cnxgagq22hko"]
+[gd_resource type="Resource" script_class="AllyStats" load_steps=19 format=3 uid="uid://cnxgagq22hko"]
 
-[ext_resource type="Script" path="res://base_resource_classes/ally_action.gd" id="1_4ukwv"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_attack_action.gd" id="1_j5lb7"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="1_t32li"]
 [ext_resource type="Resource" uid="uid://ijbevejdtbt5" path="res://actions/ally_actions/attack_actions/slash.tres" id="2_43aj7"]
@@ -8,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ciyft16ojbtqh" path="res://assets/sprites/samir_sprites/01_idle/idle_2.png" id="3_ahb5m"]
 [ext_resource type="Resource" uid="uid://u3phnepj4plg" path="res://actions/ally_actions/attack_actions/whip.tres" id="3_bud6r"]
 [ext_resource type="Texture2D" uid="uid://caqrdqjn4hqwa" path="res://assets/sprites/samir_sprites/01_idle/idle_3.png" id="4_dohjq"]
-[ext_resource type="AudioStream" uid="uid://dvtjus8g8ufr4" path="res://assets/SFX/defend.wav" id="5_lg156"]
+[ext_resource type="Resource" uid="uid://dtv4tf41ul5p" path="res://actions/ally_actions/defend_actions/defend.tres" id="4_xi5nb"]
 [ext_resource type="Texture2D" uid="uid://b66ml346qcd02" path="res://assets/sprites/samir_sprites/01_idle/idle_4.png" id="5_y4yna"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_magic_action.gd" id="6_oqdnx"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_item_action.gd" id="6_rexlt"]
@@ -18,12 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://bt342sx3c1pql" path="res://assets/sprites/samir_sprites/01_idle/idle_7.png" id="8_pvq2n"]
 [ext_resource type="Texture2D" uid="uid://c5ell0xoflwu5" path="res://assets/sprites/samir_sprites/01_idle/idle_8.png" id="9_imjxy"]
 [ext_resource type="Theme" uid="uid://7oinam54er24" path="res://UI/samir_theme.tres" id="10_mm0oj"]
-
-[sub_resource type="Resource" id="Resource_7htxk"]
-script = ExtResource("1_4ukwv")
-actionText = "took gaurd !"
-actionName = "Defend"
-sound = ExtResource("5_lg156")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jumq5"]
 animations = [{
@@ -79,7 +72,7 @@ ui_theme = ExtResource("10_mm0oj")
 texture_scale = 2.0
 can_use_magic = true
 attackActions = Array[ExtResource("1_j5lb7")]([ExtResource("2_43aj7"), ExtResource("3_bud6r")])
-defendAction = SubResource("Resource_7htxk")
+defendAction = ExtResource("4_xi5nb")
 magicActions = Array[ExtResource("6_oqdnx")]([ExtResource("7_85keb")])
 items = Array[ExtResource("6_rexlt")]([])
 health = 200

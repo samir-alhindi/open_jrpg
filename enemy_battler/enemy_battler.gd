@@ -11,6 +11,10 @@ var actionToPerform: EnemyAction
 var targetBattlers: Array[Battler]
 var none: int = 0
 
+# Defending stuff:
+var isDefending: bool = false
+var defendAmount: int
+
 @onready var health: int = stats.health:
 	set(value):
 		health = value
@@ -20,10 +24,7 @@ var none: int = 0
 		strength = value
 		strength_label.text = "Strength: " + str(strength)
 @onready var magicStrength: int = stats.magicStrength
-@onready var defense: int = stats.defense:
-	set(value):
-		defense = value
-		defense_label.text = "Defense: " + str(defense)
+@onready var defense: int = stats.defense
 @onready var speed: int = stats.speed
 @onready var name_: String = stats.name
 @onready var defeatedText: String = stats.defeatedText
@@ -40,46 +41,99 @@ func _ready() -> void:
 	animated_sprite_2d.play("idle")
 
 func decide_action():
+	handle_defense()
 	actionToPerform = actions[random.rand_weighted(actionChances)]
-	if actionToPerform.actionTargetType == EnemyAction.ActionTargetType.SINGLE_ALLY:
-		targetBattlers.append(get_tree().get_nodes_in_group("allies").pick_random())
-	elif actionToPerform.actionTargetType == EnemyAction.ActionTargetType.ALL_ALLIES:
-		targetBattlers.assign(get_tree().get_nodes_in_group("allies").duplicate())
-	elif actionToPerform.actionTargetType == EnemyAction.ActionTargetType.SINGLE_ENEMY:
-		targetBattlers.append(get_tree().get_nodes_in_group("enemies").pick_random())
+	if actionToPerform is EnemyAttackAction:
+		if actionToPerform.actionTargetType == EnemyAttackAction.ActionTargetType.SINGLE_ALLY:
+			targetBattlers.append(get_tree().get_nodes_in_group("allies").pick_random())
+		elif actionToPerform.actionTargetType == EnemyAttackAction.ActionTargetType.ALL_ALLIES:
+			targetBattlers.assign(get_tree().get_nodes_in_group("allies").duplicate())
+	elif actionToPerform is EnemyDefendAction:
+		targetBattlers.append(self)
 	await get_tree().create_timer(0.01).timeout
 	self.deciding_finished.emit()
 
 func perform_action() -> void:
 	SignalBus.display_text.emit(name_+" "+actionToPerform.actionText)
-	Audio.action.stream = actionToPerform.sound; Audio.action.play(); #Sound.
+	#play action sound:
+	Audio.action.stream = actionToPerform.sound
+	Audio.action.play()
 	await SignalBus.text_window_closed
 	for battler: Battler in targetBattlers:
-		#Check if the ally is dead before attacking:
+		##Check if we're targeting a dead battler:
 		if battler.isDefeated:
 			SignalBus.display_text.emit(battler.name_+" has already been defeated !")
 			await SignalBus.text_window_closed
 			await get_tree().create_timer(0.1).timeout
 			continue
-		#Regular ally attacking/whatever:
-		var actionAmount: float = (actionToPerform.amount + self.get(actionToPerform.actionPerformerEnhancerVariable) + battler.get(actionToPerform.targetBattlerEnhancerVariable)) 
-		actionAmount = clamp(actionAmount, -5000, 0) if actionToPerform.amount < 0 else clamp(actionAmount, 0, 5000)
-		var newAmount: float = battler.get(actionToPerform.targetBattlerVariable) + actionAmount
-		battler.set(actionToPerform.targetBattlerVariable, newAmount)
-		var formatedText: String = actionAftermathTexts[actionToPerform.actionAftermathTextType] % [battler.name_, abs(actionAmount)]
-		SignalBus.display_text.emit(formatedText); Audio.play_action_sound(actionToPerform.animation_and_sound); battler.play_anim(actionToPerform.animation_and_sound);
-		await SignalBus.text_window_closed
-		await get_tree().create_timer(0.1).timeout
-		#Check if ally has been defeated:
-		if battler.health <= 0:
-			Audio.down.play()
-			battler.anim.play("defeated")
-			await get_tree().create_timer(1.0).timeout #Wait till anim is done
-			SignalBus.display_text.emit(battler.defeatedText)
+		# check action type:
+		#region Attack action:
+		if actionToPerform is EnemyAttackAction:
+			# Calculate actual damage amount:
+			var damage: int = (actionToPerform.damageAmount + strength)
+			damage = damage - battler.defense
+			# Make sure we don't deal negative damage:
+			damage = clamp(damage, 0, 9999999)
+			# Hurt the target battler:
+			battler.health -= damage
+			# Display text:
+			var text: String = battler.name_ + " took " + str(damage) + " !"
+			SignalBus.display_text.emit(text)
+			# Play SFX of target battler getting hurt:
+			Audio.play_action_sound("hurt")
+			# Play target battler hurt animation:
+			battler.play_anim("hurt");
+			# Wait until player closes text window:
 			await SignalBus.text_window_closed
-			battler.isDefeated = true
+			# Wait a moment:
+			await get_tree().create_timer(0.1).timeout
+			# Check if target battler died
+			if battler.health <= 0:
+				# Set the battler to the "defeated" state:
+				battler.isDefeated = true
+				# Play battler dead sound:
+				Audio.down.play()
+				# Make target battler play death aniamtion:
+				battler.play_anim("defeated")
+				#Wait till anim is done
+				await get_tree().create_timer(1.0).timeout
+				# Display the battler's uniqe death text:
+				SignalBus.display_text.emit(battler.defeatedText)
+				# Wait until player closes text window:
+				await SignalBus.text_window_closed
+				#endregion
+		#region Defend action:
+		elif actionToPerform is EnemyDefendAction:
+			var defenseAmount: int = actionToPerform.defenseAmount
+			# Increase our defense stat:
+			self.defense += defenseAmount
+			# Save the increased amount for later use:
+			defendAmount = defenseAmount
+			# Change state:
+			isDefending = true
+			# Display text:
+			var text: String = battler.name_ + "'s defense increased by " + str(defenseAmount) + " !"
+			SignalBus.display_text.emit(text)
+			# Play SFX of self defending:
+			Audio.play_action_sound("defend")
+			# Play self defense animation:
+			battler.play_anim("defend");
+			# Wait until player closes text window:
+			await SignalBus.text_window_closed
+			# Wait a moment:
+			await get_tree().create_timer(0.1).timeout
+			#endregion
+		#elif actionToPerform is EnemyMagicAction:
+		#	pass
+	# Clear target battlers array:
 	targetBattlers.clear()
-	self.performing_action_finished.emit()
+	# Signal to the battle node that we're done:
+	performing_action_finished.emit()
+
+func handle_defense() -> void:
+	if isDefending:
+		defense -= defendAmount
+		isDefending = false
 
 #Debugging:
 @onready var health_label: Label = %HealthLabel
