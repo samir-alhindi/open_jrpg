@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://b85u006cmjcqi"]
+
+[ext_resource type="PackedScene" uid="uid://p86u62q8dtxq" path="res://battle/battle.tscn" id="1_eflqq"]
+[ext_resource type="PackedScene" uid="uid://bg7bhg7ckud4r" path="res://ally_battler/ally_battler.tscn" id="2_r0dhy"]
+[ext_resource type="Resource" uid="uid://cnxgagq22hko" path="res://ally_stats/samir.tres" id="3_5uuby"]
+[ext_resource type="Resource" uid="uid://bbwdd2xv1bf1i" path="res://ally_stats/maria.tres" id="4_86toq"]
+[ext_resource type="PackedScene" uid="uid://df2sj4mwc2nnh" path="res://enemy_battler/enemy_battler.tscn" id="4_fadki"]
+[ext_resource type="Resource" uid="uid://cc6dqtmkwgtre" path="res://enemy_stats/eye.tres" id="5_j332l"]
+
+[node name="AnimationTestBattle" instance=ExtResource("1_eflqq")]
+battleName = "Animation test"
+
+[node name="AllyBattler" parent="Battlers" index="0" instance=ExtResource("2_r0dhy")]
+position = Vector2(467, 103)
+stats = ExtResource("3_5uuby")
+
+[node name="AllyBattler2" parent="Battlers" index="1" instance=ExtResource("2_r0dhy")]
+position = Vector2(469, 214)
+stats = ExtResource("4_86toq")
+
+[node name="EnemyBattler" parent="Battlers" index="2" instance=ExtResource("4_fadki")]
+position = Vector2(54, 89)
+stats = ExtResource("5_j332l")
+
+[node name="EnemyBattler2" parent="Battlers" index="3" instance=ExtResource("4_fadki")]
+position = Vector2(59, 208)
+stats = ExtResource("5_j332l")

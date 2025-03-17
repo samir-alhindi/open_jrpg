@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://0xc8hpp1566k"]
+
+[ext_resource type="Script" path="res://UI/title_screen.gd" id="1_el03b"]
+[ext_resource type="PackedScene" uid="uid://dl73pjggo5rxv" path="res://battles/test_battle.tscn" id="2_173e6"]
+[ext_resource type="PackedScene" uid="uid://b85u006cmjcqi" path="res://battles/animation_test_battle.tscn" id="2_fsusu"]
+[ext_resource type="PackedScene" uid="uid://om1j1at88sjh" path="res://UI/text_window.tscn" id="3_6g7fu"]
+[ext_resource type="PackedScene" uid="uid://nhcc84euefwe" path="res://battles/boss_battle.tscn" id="3_7fol5"]
+[ext_resource type="AudioStream" uid="uid://c0xaxoerhvcvw" path="res://assets/music/main_menu.mp3" id="5_int3i"]
+[ext_resource type="Texture2D" uid="uid://bvjxall0uxfhd" path="res://assets/battle_backgrounds/6.png" id="6_uwqnk"]
+
+[node name="TitleScreen" type="CanvasLayer"]
+script = ExtResource("1_el03b")
+battles = Array[PackedScene]([ExtResource("2_fsusu"), ExtResource("2_173e6"), ExtResource("3_7fol5")])
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(288, 162)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("6_uwqnk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.211
+anchor_top = 0.105
+anchor_right = 0.798
+anchor_bottom = 0.88
+offset_left = 78.464
+offset_top = -0.0200005
+offset_right = -78.648
+offset_bottom = -0.120026
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "Open JRPG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ViewBattlesButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "View all battles"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="UIBox" parent="." instance=ExtResource("3_6g7fu")]
+visible = false
+anchor_left = 0.413
+anchor_top = 0.071
+anchor_right = 0.627
+anchor_bottom = 0.892
+offset_left = 0.111984
+offset_top = -0.00400162
+offset_right = -0.152008
+offset_bottom = -0.00799561
+
+[node name="LabelContainer" type="VBoxContainer" parent="UIBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.191
+anchor_top = 0.056
+anchor_right = 0.827
+anchor_bottom = 0.966
+offset_left = -3.718
+offset_top = -4.896
+offset_right = -0.0460052
+offset_bottom = 0.0440063
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UIBox" parent="UIBox" instance=ExtResource("3_6g7fu")]
+layout_mode = 1
+anchor_left = 1.122
+anchor_top = -0.026
+anchor_right = 2.561
+anchor_bottom = 0.417
+offset_left = -0.956009
+offset_top = -1.084
+offset_right = 0.0219879
+offset_bottom = 0.0779953
+grow_horizontal = 1
+
+[node name="InstructionsLabel" type="Label" parent="UIBox/UIBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.126
+anchor_right = 0.879
+anchor_bottom = 0.912
+offset_left = -6.762
+offset_top = -4.994
+offset_right = 12.182
+offset_bottom = 4.47199
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Choose a battle
+with the arrow
+keys and press
+'enter' to start."
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_int3i")
+autoplay = true
+parameters/looping = true
+
+[node name="RectThatDisablesMouseHover" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="VBoxContainer/ViewBattlesButton" to="." method="_on_view_battles_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

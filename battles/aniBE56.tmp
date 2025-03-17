@@ -1,0 +1,26 @@
+[gd_scene load_steps=11 format=3 uid="uid://b85u006cmjcqi"]
+
+[ext_resource type="PackedScene" uid="uid://p86u62q8dtxq" path="res://battle/battle.tscn" id="1_eflqq"]
+[ext_resource type="PackedScene" uid="uid://bg7bhg7ckud4r" path="res://ally_battler/ally_battler.tscn" id="2_2df3k"]
+[ext_resource type="Theme" uid="uid://7oinam54er24" path="res://UI/samir_theme.tres" id="3_t7q15"]
+[ext_resource type="Resource" uid="uid://cnxgagq22hko" path="res://stats/samir.tres" id="4_fgv3f"]
+[ext_resource type="Script" path="res://base_resource_classes/ally_action.gd" id="5_4kvsi"]
+[ext_resource type="Resource" uid="uid://ts4j3mtfcsm5" path="res://ally_actions/ally_punch_attack.tres" id="6_4dwgu"]
+[ext_resource type="PackedScene" uid="uid://df2sj4mwc2nnh" path="res://enemy_battler/enemy_battler.tscn" id="7_uptd4"]
+[ext_resource type="Resource" uid="uid://vs6dxq13wu3q" path="res://stats/eye.tres" id="8_mab6w"]
+[ext_resource type="Script" path="res://base_resource_classes/enemy_action.gd" id="9_4qp2s"]
+[ext_resource type="Resource" uid="uid://bgonweol8qdwu" path="res://enemy_actions/enemy_laser_attack.tres" id="10_mv5it"]
+
+[node name="AnimationTestBattle" instance=ExtResource("1_eflqq")]
+battleName = "Animation test"
+
+[node name="AllyBattler" parent="Battlers" index="0" instance=ExtResource("2_2df3k")]
+position = Vector2(472, 156)
+ui_theme = ExtResource("3_t7q15")
+stats = ExtResource("4_fgv3f")
+attackActions = Array[ExtResource("5_4kvsi")]([ExtResource("6_4dwgu")])
+
+[node name="EnemyBattler" parent="Battlers" index="1" instance=ExtResource("7_uptd4")]
+position = Vector2(46, 158)
+stats = ExtResource("8_mab6w")
+actions = Array[ExtResource("9_4qp2s")]([ExtResource("10_mv5it")])

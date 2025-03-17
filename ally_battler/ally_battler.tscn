@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://bg7bhg7ckud4r"]
+
+[ext_resource type="PackedScene" uid="uid://skjtio160esb" path="res://battler/battler.tscn" id="1_hax40"]
+[ext_resource type="Script" path="res://ally_battler/ally_battler.gd" id="2_r36vg"]
+[ext_resource type="Script" path="res://ally_battler/ally_attacking_decider.gd" id="4_l7ix6"]
+[ext_resource type="PackedScene" uid="uid://om1j1at88sjh" path="res://UI/text_window.tscn" id="6_kq74v"]
+[ext_resource type="Script" path="res://ally_battler/defending_decider.gd" id="7_whees"]
+[ext_resource type="Script" path="res://ally_battler/magic_decider.gd" id="8_w5rui"]
+[ext_resource type="Script" path="res://ally_battler/item_decider.gd" id="9_ycavy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_384cv"]
+bg_color = Color(3.08037e-06, 0.71182, 0.456897, 1)
+
+[sub_resource type="Theme" id="Theme_8ll6s"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_384cv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnb7l"]
+bg_color = Color(0, 0.678801, 0.73878, 1)
+
+[sub_resource type="Theme" id="Theme_xeiyl"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_tnb7l")
+
+[node name="AllyBattler" groups=["allies"] instance=ExtResource("1_hax40")]
+script = ExtResource("2_r36vg")
+stats = null
+
+[node name="UI" type="CanvasLayer" parent="." index="0"]
+
+[node name="Control" type="Control" parent="UI" index="0"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="UI/Control" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.153
+offset_bottom = 5.428
+grow_horizontal = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="AttackButton" type="Button" parent="UI/Control/ButtonContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "Attack"
+
+[node name="DefendButton" type="Button" parent="UI/Control/ButtonContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "Defend"
+
+[node name="MagicButton" type="Button" parent="UI/Control/ButtonContainer" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "Magic"
+
+[node name="ItemButton" type="Button" parent="UI/Control/ButtonContainer" index="3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "Item"
+
+[node name="SelectionWindow" parent="UI/Control" index="1" instance=ExtResource("6_kq74v")]
+visible = false
+layout_mode = 1
+anchor_left = 0.797
+anchor_bottom = 1.0
+offset_left = -1.07202
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="OptionsContainer" type="VBoxContainer" parent="UI/Control/SelectionWindow" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 14.0
+offset_right = -10.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttackingDecider" type="Node" parent="." index="2" node_paths=PackedStringArray("parent")]
+script = ExtResource("4_l7ix6")
+parent = NodePath("..")
+
+[node name="DefendingDecider_Manager" type="Node" parent="." index="3" node_paths=PackedStringArray("parent")]
+script = ExtResource("7_whees")
+parent = NodePath("..")
+
+[node name="MagicDecider" type="Node" parent="." index="4" node_paths=PackedStringArray("parent")]
+script = ExtResource("8_w5rui")
+parent = NodePath("..")
+
+[node name="ItemDecider" type="Node" parent="." index="5" node_paths=PackedStringArray("parent")]
+script = ExtResource("9_ycavy")
+parent = NodePath("..")
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer" index="1"]
+layout_mode = 2
+theme = SubResource("Theme_8ll6s")
+show_percentage = false
+
+[node name="MagicBar" type="ProgressBar" parent="VBoxContainer" index="3"]
+layout_mode = 2
+theme = SubResource("Theme_xeiyl")
+show_percentage = false
+
+[connection signal="focus_entered" from="UI/Control/ButtonContainer/AttackButton" to="." method="on_button_focus_changed"]
+[connection signal="pressed" from="UI/Control/ButtonContainer/AttackButton" to="AttackingDecider" method="_on_attack_button_pressed"]
+[connection signal="focus_entered" from="UI/Control/ButtonContainer/DefendButton" to="." method="on_button_focus_changed"]
+[connection signal="pressed" from="UI/Control/ButtonContainer/DefendButton" to="DefendingDecider_Manager" method="_on_defend_button_pressed"]
+[connection signal="focus_entered" from="UI/Control/ButtonContainer/MagicButton" to="." method="on_button_focus_changed"]
+[connection signal="pressed" from="UI/Control/ButtonContainer/MagicButton" to="MagicDecider" method="_on_magic_button_pressed"]
+[connection signal="focus_entered" from="UI/Control/ButtonContainer/ItemButton" to="." method="on_button_focus_changed"]
+[connection signal="pressed" from="UI/Control/ButtonContainer/ItemButton" to="ItemDecider" method="_on_item_button_pressed"]

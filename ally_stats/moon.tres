@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://ds2okwy6jhnwn"]
+
+[ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="1_tkdmf"]
+[ext_resource type="Texture2D" uid="uid://syrvs53qj26s" path="res://assets/sprites/Idle.png" id="2_6wq3e"]
+
+[resource]
+script = ExtResource("1_tkdmf")
+name = "Moon"
+texture = ExtResource("2_6wq3e")
+texture_scale = 1.0
+can_use_magic = true
+health = 2000
+magicPoints = 20
+strength = -50
+defense = 10
+magicStrength = -10
+speed = 5
+defeatedText = "Moon faded into his own shadow !"

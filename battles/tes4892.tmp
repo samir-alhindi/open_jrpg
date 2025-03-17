@@ -1,0 +1,54 @@
+[gd_scene load_steps=13 format=3 uid="uid://dl73pjggo5rxv"]
+
+[ext_resource type="PackedScene" uid="uid://p86u62q8dtxq" path="res://battle/battle.tscn" id="1_iv3fw"]
+[ext_resource type="PackedScene" uid="uid://bg7bhg7ckud4r" path="res://ally_battler/ally_battler.tscn" id="2_whplr"]
+[ext_resource type="Resource" uid="uid://cnxgagq22hko" path="res://stats/samir.tres" id="3_0l48x"]
+[ext_resource type="PackedScene" uid="uid://df2sj4mwc2nnh" path="res://enemy_battler/enemy_battler.tscn" id="3_l66xc"]
+[ext_resource type="Resource" uid="uid://cred4nua78giq" path="res://actions/ally_slash_attack.tres" id="5_1v1n5"]
+[ext_resource type="Resource" uid="uid://tr2vfax46ajn" path="res://actions/ally_whip_attack.tres" id="6_aw00l"]
+[ext_resource type="Script" path="res://base_resource_classes/action.gd" id="7_k724t"]
+[ext_resource type="Script" path="res://base_resource_classes/base_enemy_stats.gd" id="8_1mjku"]
+[ext_resource type="Texture2D" uid="uid://dr4bw4q80rowt" path="res://assets/sprites/enemy_eye.png" id="9_ai4bu"]
+[ext_resource type="Resource" uid="uid://c5ie7c0jms667" path="res://actions/enemy_laser_attack.tres" id="10_ajdkf"]
+
+[sub_resource type="Resource" id="Resource_pvm7v"]
+script = ExtResource("8_1mjku")
+name = "Eye"
+texture = ExtResource("9_ai4bu")
+health = 120
+magic = 20
+strength = 50
+defense = 10
+magicStrength = 10
+speed = 9
+
+[sub_resource type="Resource" id="Resource_g07jl"]
+script = ExtResource("8_1mjku")
+name = "Eye"
+texture = ExtResource("9_ai4bu")
+health = 120
+magic = 20
+strength = 50
+defense = 10
+magicStrength = 10
+speed = 8
+
+[node name="TestBattle" instance=ExtResource("1_iv3fw")]
+
+[node name="AllyBattler" parent="Battlers" index="0" instance=ExtResource("2_whplr")]
+position = Vector2(489, 146)
+stats = ExtResource("3_0l48x")
+attackActions = Array[ExtResource("7_k724t")]([ExtResource("5_1v1n5"), ExtResource("6_aw00l")])
+
+[node name="EnemyBattler" parent="Battlers" index="1" instance=ExtResource("3_l66xc")]
+position = Vector2(96, 80)
+stats = SubResource("Resource_pvm7v")
+actions = Array[ExtResource("7_k724t")]([ExtResource("10_ajdkf")])
+
+[node name="EnemyBattler2" parent="Battlers" index="2" instance=ExtResource("3_l66xc")]
+position = Vector2(101, 240)
+stats = SubResource("Resource_g07jl")
+actions = Array[ExtResource("7_k724t")]([ExtResource("10_ajdkf")])
+
+[node name="TextWindow" parent="." index="2"]
+z_index = 3

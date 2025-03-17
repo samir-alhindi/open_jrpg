@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://cwhes6dfj7e6b"]
+
+[ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="1_r7hok"]
+[ext_resource type="Texture2D" uid="uid://bfme3epekacsd" path="res://assets/sprites/idle_1.png" id="2_r7inl"]
+
+[resource]
+script = ExtResource("1_r7hok")
+name = "Leaf"
+texture = ExtResource("2_r7inl")
+texture_scale = 2.0
+can_use_magic = false
+health = 180
+magicPoints = 0
+strength = -50
+defense = 20
+magicStrength = -10
+speed = 40
+defeatedText = "Leaf turned into a pile of leaves !"

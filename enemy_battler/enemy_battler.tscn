@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://df2sj4mwc2nnh"]
+
+[ext_resource type="PackedScene" uid="uid://skjtio160esb" path="res://battler/battler.tscn" id="1_a2tly"]
+[ext_resource type="Script" path="res://enemy_battler/enemy_battler.gd" id="2_8y5u6"]
+[ext_resource type="Script" path="res://base_resource_classes/enemy_action.gd" id="3_yc7iu"]
+
+[node name="EnemyBattler" groups=["enemies"] instance=ExtResource("1_a2tly")]
+script = ExtResource("2_8y5u6")
+stats = null
+actions = Array[ExtResource("3_yc7iu")]([])

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://c5ie7c0jms667"]
+
+[ext_resource type="AudioStream" uid="uid://c3v01c7mq3ptb" path="res://assets/SFX/hurt.wav" id="1_5rddb"]
+[ext_resource type="Script" path="res://base_resource_classes/ally_action.gd" id="1_lqyb1"]
+[ext_resource type="AudioStream" uid="uid://dd877g5s2mad5" path="res://assets/SFX/laser_2.wav" id="2_cudfj"]
+
+[resource]
+script = ExtResource("1_lqyb1")
+actionName = "Laser"
+actionTargetType = 1
+targetBattlerVariable = "health"
+actionPerformerEnhancerVariable = "strength"
+targetBattlerEnhancerVariable = "defense"
+amount = -20
+magicPointsCost = 0
+enemyActionChance = 1.0
+actionAftermathTextType = "took damage"
+actionText = "fired a laser beam !"
+sound = ExtResource("2_cudfj")
+effectSound = ExtResource("1_5rddb")
+animation = "hurt"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AllyOffensiveMagicAction" load_steps=3 format=3 uid="uid://fq77qto0fv7s"]
+
+[ext_resource type="Script" path="res://base_resource_classes/ally_offensive_magic_action.gd" id="1_f5bds"]
+[ext_resource type="AudioStream" uid="uid://b3cga5jannceb" path="res://assets/SFX/fire.mp3" id="2_s4w81"]
+
+[resource]
+script = ExtResource("1_f5bds")
+actionTargetType = 1
+damageAmount = 150
+magicPointsAmount = 20
+actionText = "'s Flames erupted, turning the battlefield into a blazing inferno !"
+actionName = "Infernal Surge"
+sound = ExtResource("2_s4w81")

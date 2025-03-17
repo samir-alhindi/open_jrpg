@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://om1j1at88sjh"]
+
+[ext_resource type="Texture2D" uid="uid://bkx22jvnlshd0" path="res://UI/Border EB.png" id="1_t6a2q"]
+
+[node name="UIBox" type="NinePatchRect"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.225
+offset_bottom = 7.1
+grow_horizontal = 2
+texture = ExtResource("1_t6a2q")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.038
+anchor_top = 0.225
+anchor_right = 0.965
+anchor_bottom = 0.737
+offset_left = -7.888
+offset_top = -6.0
+offset_right = 6.15997
+offset_bottom = 7.04
+grow_horizontal = 2
+grow_vertical = 2

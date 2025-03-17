@@ -1,0 +1,62 @@
+[gd_scene load_steps=23 format=3 uid="uid://nhcc84euefwe"]
+
+[ext_resource type="PackedScene" uid="uid://p86u62q8dtxq" path="res://battle/battle.tscn" id="1_wxqex"]
+[ext_resource type="Texture2D" uid="uid://gmeo40g2mpmj" path="res://assets/battle_backgrounds/7.png" id="2_80sug"]
+[ext_resource type="PackedScene" uid="uid://bg7bhg7ckud4r" path="res://ally_battler/ally_battler.tscn" id="3_4xx16"]
+[ext_resource type="Theme" uid="uid://7oinam54er24" path="res://UI/samir_theme.tres" id="4_na4ep"]
+[ext_resource type="Resource" uid="uid://cnxgagq22hko" path="res://ally_stats/samir.tres" id="5_5d7sp"]
+[ext_resource type="Script" path="res://base_resource_classes/ally_action.gd" id="6_tbtd4"]
+[ext_resource type="Resource" uid="uid://cred4nua78giq" path="res://actions/old_ally_actions/ally_slash_attack.tres" id="7_6lvb0"]
+[ext_resource type="Resource" uid="uid://tr2vfax46ajn" path="res://actions/old_ally_actions/ally_whip_attack.tres" id="8_0gyfj"]
+[ext_resource type="Resource" uid="uid://bqn43vyjc7pg0" path="res://actions/old_ally_actions/ally_fire_magic.tres" id="9_igw56"]
+[ext_resource type="Resource" uid="uid://m4lrambb7iog" path="res://actions/old_ally_actions/ally_healing_potion.tres" id="10_l6er2"]
+[ext_resource type="Theme" uid="uid://bq1murg03asq7" path="res://UI/maria_theme.tres" id="11_nwu6v"]
+[ext_resource type="Resource" uid="uid://bbwdd2xv1bf1i" path="res://ally_stats/maria.tres" id="12_flef6"]
+[ext_resource type="Resource" uid="uid://ts4j3mtfcsm5" path="res://actions/old_ally_actions/ally_punch_attack.tres" id="13_gn2ip"]
+[ext_resource type="Resource" uid="uid://clsn7y8g3nfxp" path="res://actions/old_ally_actions/ally_ice_magic.tres" id="14_cpef4"]
+[ext_resource type="Resource" uid="uid://cx8qvtmuw6kr8" path="res://actions/old_ally_actions/ally_snow_magic.tres" id="15_lfh5x"]
+[ext_resource type="Theme" uid="uid://3mui51n7lsd2" path="res://UI/leaf_theme.tres" id="17_54ga8"]
+[ext_resource type="Resource" uid="uid://cwhes6dfj7e6b" path="res://ally_stats/leaf.tres" id="18_10v2d"]
+[ext_resource type="Resource" uid="uid://dp72omav0kgwd" path="res://actions/old_ally_actions/ally_bow_attack.tres" id="19_o4ds8"]
+[ext_resource type="Resource" uid="uid://c0oxuglc76n1p" path="res://actions/old_ally_actions/ally_healing_all.tres" id="20_3r6og"]
+[ext_resource type="PackedScene" uid="uid://df2sj4mwc2nnh" path="res://enemy_battler/enemy_battler.tscn" id="20_mp2jc"]
+[ext_resource type="Resource" uid="uid://ds2okwy6jhnwn" path="res://ally_stats/moon.tres" id="21_qlh5f"]
+[ext_resource type="AudioStream" uid="uid://d237emy0o3efv" path="res://assets/music/Battle-of-the-Ancients.mp3" id="24_yhpne"]
+
+[node name="BossBattle" instance=ExtResource("1_wxqex")]
+battleName = "Boss battle"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_80sug")
+
+[node name="AllyBattler" parent="Battlers" index="0" instance=ExtResource("3_4xx16")]
+position = Vector2(476, 85)
+ui_theme = ExtResource("4_na4ep")
+stats = ExtResource("5_5d7sp")
+attackActions = Array[ExtResource("6_tbtd4")]([ExtResource("7_6lvb0"), ExtResource("8_0gyfj")])
+magicActions = Array[ExtResource("6_tbtd4")]([ExtResource("9_igw56")])
+items = Array[ExtResource("6_tbtd4")]([ExtResource("10_l6er2"), ExtResource("20_3r6og")])
+
+[node name="AllyBattler2" parent="Battlers" index="1" instance=ExtResource("3_4xx16")]
+position = Vector2(390, 134)
+ui_theme = ExtResource("11_nwu6v")
+stats = ExtResource("12_flef6")
+attackActions = Array[ExtResource("6_tbtd4")]([ExtResource("13_gn2ip")])
+magicActions = Array[ExtResource("6_tbtd4")]([ExtResource("14_cpef4"), ExtResource("15_lfh5x")])
+items = Array[ExtResource("6_tbtd4")]([ExtResource("10_l6er2"), ExtResource("20_3r6og")])
+
+[node name="AllyBattler3" parent="Battlers" index="2" instance=ExtResource("3_4xx16")]
+position = Vector2(451, 206)
+ui_theme = ExtResource("17_54ga8")
+stats = ExtResource("18_10v2d")
+attackActions = Array[ExtResource("6_tbtd4")]([ExtResource("19_o4ds8"), ExtResource("8_0gyfj")])
+items = Array[ExtResource("6_tbtd4")]([ExtResource("10_l6er2"), ExtResource("10_l6er2"), ExtResource("20_3r6og")])
+
+[node name="EnemyBattler" parent="Battlers" index="3" instance=ExtResource("20_mp2jc")]
+position = Vector2(82, 153)
+scale = Vector2(1.5, 1.5)
+stats = ExtResource("21_qlh5f")
+
+[node name="BattleMusic" parent="." index="4"]
+stream = ExtResource("24_yhpne")
+parameters/looping = true

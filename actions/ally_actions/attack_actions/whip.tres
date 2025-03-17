@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AllyAttackAction" load_steps=3 format=3 uid="uid://u3phnepj4plg"]
+
+[ext_resource type="Script" path="res://base_resource_classes/ally_attack_action.gd" id="1_fei8v"]
+[ext_resource type="AudioStream" uid="uid://cbcrq5axq42dc" path="res://assets/SFX/whip.wav" id="2_tkv1w"]
+
+[resource]
+script = ExtResource("1_fei8v")
+actionTargetType = 1
+damageAmount = 100
+actionText = "whipped all the enemies !"
+actionName = "Whip"
+sound = ExtResource("2_tkv1w")

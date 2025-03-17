@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://6bwhj55bxorf"]
+
+[ext_resource type="AudioStream" uid="uid://itm7adhvywue" path="res://assets/SFX/heal.ogg" id="1_0nfs6"]
+[ext_resource type="Script" path="res://base_resource_classes/ally_action.gd" id="1_epnbc"]
+[ext_resource type="AudioStream" uid="uid://dvtjus8g8ufr4" path="res://assets/SFX/defend.wav" id="2_k347r"]
+
+[resource]
+script = ExtResource("1_epnbc")
+actionName = "Heal"
+actionTargetType = 0
+targetBattlerVariable = "health"
+actionPerformerEnhancerVariable = "none"
+targetBattlerEnhancerVariable = "none"
+amount = 70
+magicPointsCost = 0
+enemyActionChance = 0.1
+actionAftermathTextType = "heal"
+actionText = "Healed"
+sound = ExtResource("2_k347r")
+effectSound = ExtResource("1_0nfs6")
+animation = "heal"
