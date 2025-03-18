@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AllyStats" load_steps=19 format=3 uid="uid://cnxgagq22hko"]
+[gd_resource type="Resource" script_class="AllyStats" load_steps=20 format=3 uid="uid://cnxgagq22hko"]
 
 [ext_resource type="Script" path="res://base_resource_classes/ally_attack_action.gd" id="1_j5lb7"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="1_t32li"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://datxoaf76pxwg" path="res://assets/sprites/samir_sprites/01_idle/idle_5.png" id="6_s5yj4"]
 [ext_resource type="Resource" uid="uid://fq77qto0fv7s" path="res://actions/ally_actions/magic_actions/offensive_magic_actions/burn_spell.tres" id="7_85keb"]
 [ext_resource type="Texture2D" uid="uid://cl05x0kfls70x" path="res://assets/sprites/samir_sprites/01_idle/idle_6.png" id="7_agibj"]
+[ext_resource type="Resource" uid="uid://qs2uxjyytj0e" path="res://actions/ally_actions/magic_actions/healing_magic_actions/single_heal.tres" id="8_brx8r"]
 [ext_resource type="Texture2D" uid="uid://bt342sx3c1pql" path="res://assets/sprites/samir_sprites/01_idle/idle_7.png" id="8_pvq2n"]
 [ext_resource type="Texture2D" uid="uid://c5ell0xoflwu5" path="res://assets/sprites/samir_sprites/01_idle/idle_8.png" id="9_imjxy"]
 [ext_resource type="Theme" uid="uid://7oinam54er24" path="res://UI/samir_theme.tres" id="10_mm0oj"]
@@ -73,7 +74,7 @@ texture_scale = 2.0
 can_use_magic = true
 attackActions = Array[ExtResource("1_j5lb7")]([ExtResource("2_43aj7"), ExtResource("3_bud6r")])
 defendAction = ExtResource("4_xi5nb")
-magicActions = Array[ExtResource("6_oqdnx")]([ExtResource("7_85keb")])
+magicActions = Array[ExtResource("6_oqdnx")]([ExtResource("7_85keb"), ExtResource("8_brx8r")])
 items = Array[ExtResource("6_rexlt")]([])
 health = 200
 magicPoints = 20

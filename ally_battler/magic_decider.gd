@@ -23,11 +23,11 @@ var battlerIndex: int:
 		labelToFocus.modulate.a = 1
 
 #Selection states:
-enum {NOT_SELECTING, SELECTING_ACTION, SELECTING_ENEMIES}
+enum {NOT_SELECTING, SELECTING_ACTION, SELECTING_BATTLER}
 var currentSelectionType = NOT_SELECTING
 var isSelecting: bool = false
 
-func clear_labels():
+func clear_labels() -> void:
 	for label: Label in parent.options_container.get_children():
 		if label: label.queue_free()
 
@@ -40,7 +40,7 @@ func _on_magic_button_pressed() -> void:
 	parent.button_container.hide()
 	for magicAction: AllyAction in parent.magicActions:
 		var label: Label = Label.new()
-		label.text = magicAction.actionName
+		label.text = magicAction.actionName + " ( " + str(magicAction.magicPointsCost) + " MP)"
 		label.modulate.a = 0.5
 		parent.options_container.add_child(label)
 	#Begin selection:
@@ -51,23 +51,27 @@ func _on_magic_button_pressed() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_down") and isSelecting:
 		if currentSelectionType == SELECTING_ACTION: actionIndex += 1
-		if currentSelectionType == SELECTING_ENEMIES: battlerIndex += 1
+		if currentSelectionType == SELECTING_BATTLER: battlerIndex += 1
 	if event.is_action_pressed("ui_up") and isSelecting:
 		if currentSelectionType == SELECTING_ACTION: actionIndex -= 1
-		if currentSelectionType == SELECTING_ENEMIES: battlerIndex -= 1
+		if currentSelectionType == SELECTING_BATTLER: battlerIndex -= 1
 	if event.is_action_pressed("ui_accept") and isSelecting:
 		match currentSelectionType:
 			SELECTING_ACTION:
 				if !has_enough_magic_points(): not_enough_magic_points(); return
 				var action: AllyMagicAction = parent.magicActions[actionIndex]
 				parent.actionToPerform = action
-				currentSelectionType = SELECTING_ENEMIES
+				currentSelectionType = SELECTING_BATTLER
+				# Check the kind of magic action:
 				if action is AllyOffensiveMagicAction:
-					if action.actionTargetType == AllyOffensiveMagicAction.ActionTargetType.SINGLE_ENEMY:
-						start_selecting_single_enemy()
-					elif action.actionTargetType == AllyOffensiveMagicAction.ActionTargetType.ALL_ENEMIES:
-						select_all_enemies_and_finish()
-			SELECTING_ENEMIES:
+					currentGroup = "enemies"
+				elif action is AllyHealingMagicAction:
+					currentGroup = "allies"
+				if action.targetNum == AllyMagicAction.TargetNum.SINGLE:
+					start_selecting_single_battler()
+				elif action.targetNum == AllyMagicAction.TargetNum.ALL:
+					select_all_battlers_and_finish()
+			SELECTING_BATTLER:
 				finish_selecting()
 	if event.is_action_pressed("ui_cancel") and isSelecting:
 		cancel_action()
@@ -97,20 +101,20 @@ func not_enough_magic_points() -> void:
 	await get_tree().create_timer(0.1).timeout
 	parent.magic_button.grab_focus()
 
-func start_selecting_single_enemy():
+func start_selecting_single_battler():
 	clear_labels()
 	#Wait until all labels are freed:
 	await get_tree().create_timer(0.1).timeout
-	for enemyBattler: EnemyBattler in get_tree().get_nodes_in_group("enemies"):
+	for battler: Battler in get_tree().get_nodes_in_group(currentGroup):
 		var label: Label = Label.new()
-		label.text = enemyBattler.stats.name
+		label.text = battler.stats.name
 		label.modulate.a = 0.5
 		parent.options_container.add_child(label)
 	battlerIndex = 0
 
-func select_all_enemies_and_finish() -> void:
+func select_all_battlers_and_finish() -> void:
 	parent.magicPoints -= parent.magicActions[actionIndex].magicPointsCost
-	for battler: Battler in get_tree().get_nodes_in_group("enemies"):
+	for battler: Battler in get_tree().get_nodes_in_group(currentGroup):
 		parent.targetBattlers.append(battler)
 	isSelecting = false
 	currentSelectionType = NOT_SELECTING
@@ -119,7 +123,7 @@ func select_all_enemies_and_finish() -> void:
 
 func finish_selecting():
 	parent.magicPoints -= parent.magicActions[actionIndex].magicPointsCost
-	parent.targetBattlers.append(get_tree().get_nodes_in_group("enemies")[battlerIndex])
+	parent.targetBattlers.append(get_tree().get_nodes_in_group(currentGroup)[battlerIndex])
 	isSelecting = false
 	currentSelectionType = NOT_SELECTING
 	parent.selection_window.hide()

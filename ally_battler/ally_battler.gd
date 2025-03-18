@@ -71,36 +71,6 @@ func decide_action() -> void:
 	await get_tree().create_timer(0.5).timeout
 	attack_button.grab_focus()
 
-#func perform_action() -> void:
-	#SignalBus.display_text.emit(name_+" "+actionToPerform.actionText)
-	#Audio.action.stream = actionToPerform.sound; Audio.action.play(); #Sound.
-	#await SignalBus.text_window_closed
-	#for battler: Battler in targetBattlers:
-		##Check if we're attacking/whatever a dead battler:
-		#if battler.isDefeated:
-			#SignalBus.display_text.emit(battler.name_+" has already been defeated !")
-			#await SignalBus.text_window_closed
-			#await get_tree().create_timer(0.1).timeout
-			#continue
-		##Regular battler attacking/whatever:
-		#var actionAmount: float = (actionToPerform.amount + self.get(actionToPerform.actionPerformerEnhancerVariable) + battler.get(actionToPerform.targetBattlerEnhancerVariable)) 
-		#actionAmount = clamp(actionAmount, -5000, 0) if actionToPerform.amount < 0 else clamp(actionAmount, 0, 5000)
-		#var newAmount: float = battler.get(actionToPerform.targetBattlerVariable) + actionAmount
-		#battler.set(actionToPerform.targetBattlerVariable, newAmount)
-		#var formatedText: String = actionAftermathTexts[actionToPerform.actionAftermathTextType] % [battler.name_, abs(actionAmount)]
-		#SignalBus.display_text.emit(formatedText); Audio.play_action_sound(actionToPerform.animation_and_sound); battler.play_anim(actionToPerform.animation_and_sound);
-		#await SignalBus.text_window_closed
-		#await get_tree().create_timer(0.1).timeout
-		#if battler.health <= 0:
-			#Audio.down.play()
-			#battler.play_anim("defeated")
-			#await get_tree().create_timer(1.0).timeout #Wait till anim is done
-			#SignalBus.display_text.emit(battler.defeatedText)
-			#await SignalBus.text_window_closed
-			#battler.isDefeated = true
-	#performing_action_finished.emit()
-
-
 func perform_action() -> void:
 	SignalBus.display_text.emit(name_+" "+actionToPerform.actionText)
 	#play action sound:
@@ -117,20 +87,7 @@ func perform_action() -> void:
 		# check action type:
 		#region Attack action:
 		if actionToPerform is AllyAttackAction:
-			# Calculate actual damage amount:
-			var damage: int = (actionToPerform.damageAmount + strength)
-			damage = damage - battler.defense
-			# Make sure we don't deal negative damage:
-			damage = clamp(damage, 0, 9999999)
-			# Hurt the target battler:
-			battler.health -= damage
-			# Display text:
-			var text: String = battler.name_ + " took " + str(damage) + " !"
-			SignalBus.display_text.emit(text)
-			# Play SFX of target battler getting hurt:
-			Audio.play_action_sound("hurt")
-			# Play target battler hurt animation:
-			battler.play_anim("hurt");
+			damage_actions(battler, false)
 			# Wait until player closes text window:
 			await SignalBus.text_window_closed
 			# Wait a moment:
@@ -167,12 +124,70 @@ func perform_action() -> void:
 			# Wait a moment:
 			await get_tree().create_timer(0.1).timeout
 			#endregion
+		#region Magic action:
 		elif actionToPerform is AllyMagicAction:
-			pass
+			if actionToPerform is AllyOffensiveMagicAction:
+				damage_actions(battler, true)
+				# Wait until player closes text window:
+				await SignalBus.text_window_closed
+				# Wait a moment:
+				await get_tree().create_timer(0.1).timeout
+				# Check if target battler died
+				if battler.health <= 0:
+					# Set the battler to the "defeated" state:
+					battler.isDefeated = true
+					# Play battler dead sound:
+					Audio.down.play()
+					# Make target battler play death aniamtion:
+					battler.play_anim("defeated")
+					#Wait till anim is done
+					await get_tree().create_timer(1.0).timeout
+					# Display the battler's uniqe death text:
+					SignalBus.display_text.emit(battler.defeatedText)
+					# Wait until player closes text window:
+					await SignalBus.text_window_closed
+			elif actionToPerform is AllyHealingMagicAction:
+			# Calculate actual damage amount:
+				var healingAmount: int
+				healingAmount = (actionToPerform.healingAmount + magicStrength)
+				# heal the target ally battler:
+				battler.health += healingAmount
+				# Display text:
+				var text: String = battler.name_ + " recovered " + str(healingAmount) + " !"
+				SignalBus.display_text.emit(text)
+				# Play SFX of target battler getting healed:
+				Audio.play_action_sound("heal")
+				# Play target battler heal animation:
+				battler.play_anim("heal")
+				# Wait until player closes text window:
+				await SignalBus.text_window_closed
+				# Wait a moment:
+				await get_tree().create_timer(0.1).timeout
+			#endregion
 	# Clear target battlers array:
 	targetBattlers.clear()
 	# Signal to the battle node that we're done:
 	performing_action_finished.emit()
+
+func damage_actions(battler: Battler, isMagic: bool) -> void:
+			# Calculate actual damage amount:
+			var damage: int
+			if not isMagic:
+				damage = (actionToPerform.damageAmount + strength)
+			elif isMagic:
+				damage = (actionToPerform.damageAmount + magicStrength)
+			damage = damage - battler.defense
+			# Make sure we don't deal negative damage:
+			damage = clamp(damage, 0, 9999999)
+			# Hurt the target battler:
+			battler.health -= damage
+			# Display text:
+			var text: String = battler.name_ + " took " + str(damage) + " !"
+			SignalBus.display_text.emit(text)
+			# Play SFX of target battler getting hurt:
+			Audio.play_action_sound("hurt")
+			# Play target battler hurt animation:
+			battler.play_anim("hurt")
 
 #For Displaying stats:
 @onready var health_label: Label = %HealthLabel

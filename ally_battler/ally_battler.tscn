@@ -73,9 +73,9 @@ text = "Item"
 [node name="SelectionWindow" parent="UI/Control" index="1" instance=ExtResource("6_kq74v")]
 visible = false
 layout_mode = 1
-anchor_left = 0.797
+anchor_left = 0.561
 anchor_bottom = 1.0
-offset_left = -1.07202
+offset_left = -0.136017
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 2

@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_f5bds")
-actionTargetType = 1
 damageAmount = 150
-magicPointsAmount = 20
+magicPointsCost = 10
+targetNum = 1
 actionText = "'s Flames erupted, turning the battlefield into a blazing inferno !"
 actionName = "Infernal Surge"
 sound = ExtResource("2_s4w81")
