@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_6xhwm")
 actionTargetType = 1
-damageAmount = 110
+damageAmount = 40
 actionText = "unleashed arrows in all directions !"
 actionName = "Wide arrows"
 sound = ExtResource("2_e76mr")

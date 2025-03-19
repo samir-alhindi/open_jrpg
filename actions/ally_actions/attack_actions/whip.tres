@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_fei8v")
 actionTargetType = 1
-damageAmount = 100
+damageAmount = 25
 actionText = "whipped all the enemies !"
 actionName = "Whip"
 sound = ExtResource("2_tkv1w")

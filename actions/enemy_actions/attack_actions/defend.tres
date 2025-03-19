@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_ucv2g")
 defenseAmount = 50
-enemyActionChance = 1.0
+enemyActionChance = 0.25
 actionText = "Took a defensive stance !"
 sound = ExtResource("2_du74n")

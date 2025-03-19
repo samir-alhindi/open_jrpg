@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_lik4r")
 actionTargetType = 0
-damageAmount = 80
+damageAmount = 5
 actionText = "Punched hard !"
-actionName = "Punch"
+actionName = "Weak punch"
 sound = ExtResource("2_5ghkx")

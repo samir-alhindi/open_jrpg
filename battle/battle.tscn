@@ -23,14 +23,14 @@ volume_db = -20.0
 autoplay = true
 
 [node name="AllySpawnCircle" type="Marker2D" parent="."]
-position = Vector2(438, 162)
+position = Vector2(410, 186)
 script = ExtResource("4_137ac")
 
 [node name="SpawnPoint" type="Marker2D" parent="AllySpawnCircle"]
 position = Vector2(0, -80)
 
 [node name="EnemySpawnCircle" type="Marker2D" parent="."]
-position = Vector2(103, 162)
+position = Vector2(103, 186)
 script = ExtResource("4_137ac")
 
 [node name="SpawnPoint" type="Marker2D" parent="EnemySpawnCircle"]

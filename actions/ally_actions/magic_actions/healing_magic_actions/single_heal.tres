@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_38onw")
-healingAmount = 100
+healingAmount = 10
 magicPointsCost = 5
+targetNum = 0
 actionText = "'s Soothing water flowed, knitting wounds with gentle radiance !"
 actionName = "Healing water"
 sound = ExtResource("2_rlp1d")

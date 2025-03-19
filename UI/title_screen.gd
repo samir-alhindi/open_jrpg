@@ -21,6 +21,8 @@ func _ready() -> void:
 	# Load battles from disk:
 	var battlePaths: PackedStringArray = DirAccess.get_files_at("res://battle_data/")
 	for battlePath: String in battlePaths:
+		if battlePath.ends_with(".remap"):
+			battlePath = battlePath.replace(".remap", "")
 		var battle: BattleData = load("res://battle_data/" + battlePath)
 		battles.append(battle)
 	

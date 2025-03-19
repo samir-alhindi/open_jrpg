@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_pf7ef")
 actionTargetType = 0
-damageAmount = 100
+damageAmount = 50
 actionText = "swung his sword !"
 actionName = "Slash"
 sound = ExtResource("2_1qo5e")

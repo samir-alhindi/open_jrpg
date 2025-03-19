@@ -143,5 +143,3 @@ func handle_defense() -> void:
 @onready var health_label: Label = %HealthLabel
 @onready var strength_label: Label = %StrengthLabel
 @onready var defense_label: Label = %DefenseLabel
-func _process(delta: float) -> void:
-	health_label.text = "Health: " + str(health)

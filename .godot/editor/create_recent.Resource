@@ -1,8 +1,8 @@
+EnemyAttackAction
 BattleData
 AllyStats
 AllyAttackAction
 EnemyDefendAction
-EnemyAttackAction
 AllyOffensiveMagicAction
 AllyHealingMagicAction
 AllyDefendAction

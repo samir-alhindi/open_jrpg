@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BattleData" load_steps=10 format=3 uid="uid://bcar7s7lyeinu"]
+
+[ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="1_u4h26"]
+[ext_resource type="Resource" uid="uid://cnxgagq22hko" path="res://stats/ally_stats/samir.tres" id="2_383vu"]
+[ext_resource type="Script" path="res://base_resource_classes/enemy_stats.gd" id="2_y0nj8"]
+[ext_resource type="Script" path="res://base_resource_classes/battle_data.gd" id="3_malvr"]
+[ext_resource type="Resource" uid="uid://bbwdd2xv1bf1i" path="res://stats/ally_stats/maria.tres" id="3_pr5ei"]
+[ext_resource type="Resource" uid="uid://cghwgxhnra2og" path="res://stats/ally_stats/rayyan.tres" id="4_28yy5"]
+[ext_resource type="Texture2D" uid="uid://ccd1viva3d83g" path="res://assets/battle_backgrounds/5.png" id="4_v4mbv"]
+[ext_resource type="AudioStream" uid="uid://d237emy0o3efv" path="res://assets/music/Battle-of-the-Ancients.mp3" id="5_5q27r"]
+[ext_resource type="Resource" uid="uid://cc6dqtmkwgtre" path="res://stats/enemy_stats/eye.tres" id="7_slxaw"]
+
+[resource]
+script = ExtResource("3_malvr")
+battleName = "Demo battle"
+background = ExtResource("4_v4mbv")
+battleMusic = ExtResource("5_5q27r")
+allies = Array[ExtResource("1_u4h26")]([ExtResource("2_383vu"), ExtResource("3_pr5ei"), ExtResource("4_28yy5")])
+enemies = Array[ExtResource("2_y0nj8")]([ExtResource("7_slxaw"), ExtResource("7_slxaw"), ExtResource("7_slxaw")])

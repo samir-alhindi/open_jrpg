@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bg7bhg7ckud4r"]
 
-[ext_resource type="PackedScene" uid="uid://skjtio160esb" path="res://battler/battler.tscn" id="1_hax40"]
+[ext_resource type="PackedScene" uid="uid://skjtio160esb" path="res://abstract_battler/battler.tscn" id="1_hax40"]
 [ext_resource type="Script" path="res://ally_battler/ally_battler.gd" id="2_r36vg"]
 [ext_resource type="Script" path="res://ally_battler/ally_attacking_decider.gd" id="4_l7ix6"]
 [ext_resource type="PackedScene" uid="uid://om1j1at88sjh" path="res://UI/text_window.tscn" id="6_kq74v"]

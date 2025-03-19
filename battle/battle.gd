@@ -79,6 +79,7 @@ func free_defeated_battlers() -> void:
 	for battler: Battler in battlers:
 		if battler.isDefeated:
 			battler.remove_from_group("enemies")
+			battler.remove_from_group("allies")
 			battler.reparent(self)
 			battler.anim.play("fade_out")
 	await get_tree().create_timer(0.01).timeout #Wait till all are freed.

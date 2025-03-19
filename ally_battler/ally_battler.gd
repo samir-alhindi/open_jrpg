@@ -157,7 +157,7 @@ func perform_action() -> void:
 				play_anim("heal_magic")
 				# Calculate actual damage amount:
 				var healingAmount: int
-				healingAmount = (actionToPerform.healingAmount + magicStrength)
+				healingAmount = (actionToPerform.healingAmount + magicStrength / 2)
 				# heal the target ally battler:
 				battler.health += healingAmount
 				# Display text:

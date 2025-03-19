@@ -7,6 +7,6 @@
 script = ExtResource("1_jwwjm")
 actionTargetType = 1
 damageAmount = 80
-enemyActionChance = 1.0
+enemyActionChance = 0.25
 actionText = "Fired a wide blast !"
 sound = ExtResource("2_j5noe")
