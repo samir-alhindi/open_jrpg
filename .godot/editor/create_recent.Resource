@@ -1,9 +1,11 @@
+BattleData
+AllyStats
+AllyAttackAction
 EnemyDefendAction
 EnemyAttackAction
 AllyOffensiveMagicAction
 AllyHealingMagicAction
 AllyDefendAction
-AllyAttackAction
 EnemyStats
 EnemyAction
 Theme

@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxl8jjcf37amb"]
+
+[ext_resource type="Script" path="res://autoloads/audio.gd" id="1_jvds0"]
+[ext_resource type="AudioStream" uid="uid://bdk2s3qlm252m" path="res://assets/SFX/Minimalist2.ogg" id="2_a11d8"]
+[ext_resource type="AudioStream" uid="uid://c3v01c7mq3ptb" path="res://assets/SFX/hurt.wav" id="3_4fbt5"]
+[ext_resource type="AudioStream" uid="uid://n1genvb853ip" path="res://assets/SFX/Minimalist13.ogg" id="3_ak071"]
+[ext_resource type="AudioStream" uid="uid://bha4iqj2o8tsl" path="res://assets/SFX/battle_lost.wav" id="4_8rrip"]
+[ext_resource type="AudioStream" uid="uid://c5s88buiqnm2n" path="res://assets/SFX/battle_won.wav" id="5_3kdmj"]
+[ext_resource type="AudioStream" uid="uid://dxsjt7tqktxgn" path="res://assets/SFX/ally_down.wav" id="5_lccs7"]
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_jvds0")
+
+[node name="BtnMov" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_a11d8")
+
+[node name="BtnPressed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ak071")
+
+[node name="Action" type="AudioStreamPlayer" parent="."]
+
+[node name="ActionEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4fbt5")
+
+[node name="Lost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8rrip")
+
+[node name="Won" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3kdmj")
+
+[node name="Down" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lccs7")

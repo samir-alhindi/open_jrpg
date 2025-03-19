@@ -69,6 +69,8 @@ func perform_action() -> void:
 		# check action type:
 		#region Attack action:
 		if actionToPerform is EnemyAttackAction:
+			# Play attack animation:
+			play_anim("attack")
 			# Calculate actual damage amount:
 			var damage: int = (actionToPerform.damageAmount + strength)
 			damage = damage - battler.defense
@@ -104,6 +106,8 @@ func perform_action() -> void:
 				#endregion
 		#region Defend action:
 		elif actionToPerform is EnemyDefendAction:
+			# Play defending animation:
+			play_anim("defend")
 			var defenseAmount: int = actionToPerform.defenseAmount
 			# Increase our defense stat:
 			self.defense += defenseAmount

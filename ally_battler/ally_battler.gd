@@ -53,7 +53,7 @@ func _ready() -> void:
 	button_container.hide()
 	animated_sprite_2d.scale *= stats.texture_scale
 	animated_sprite_2d.flip_h = true
-	animated_sprite_2d.offset.y -= 30
+	animated_sprite_2d.offset.y -= 40
 	if stats.can_use_magic == false:
 		magic_button.queue_free()
 		magic_bar.hide()
@@ -87,6 +87,8 @@ func perform_action() -> void:
 		# check action type:
 		#region Attack action:
 		if actionToPerform is AllyAttackAction:
+			# Play attack animation:
+			play_anim("attack")
 			damage_actions(battler, false)
 			# Wait until player closes text window:
 			await SignalBus.text_window_closed
@@ -109,6 +111,8 @@ func perform_action() -> void:
 				#endregion
 		#region Defend action:
 		elif actionToPerform is AllyDefendAction:
+			# Play defending animation:
+			play_anim("defend")
 			var defenseAmount: int = actionToPerform.defenseAmount
 			# Increase our defense stat:
 			self.defense += defenseAmount
@@ -127,6 +131,8 @@ func perform_action() -> void:
 		#region Magic action:
 		elif actionToPerform is AllyMagicAction:
 			if actionToPerform is AllyOffensiveMagicAction:
+				# Play animation:
+				play_anim("offensive_magic")
 				damage_actions(battler, true)
 				# Wait until player closes text window:
 				await SignalBus.text_window_closed
@@ -147,7 +153,9 @@ func perform_action() -> void:
 					# Wait until player closes text window:
 					await SignalBus.text_window_closed
 			elif actionToPerform is AllyHealingMagicAction:
-			# Calculate actual damage amount:
+				# Play aniamtion:
+				play_anim("heal_magic")
+				# Calculate actual damage amount:
 				var healingAmount: int
 				healingAmount = (actionToPerform.healingAmount + magicStrength)
 				# heal the target ally battler:

@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBus="*res://global/signal_bus.gd"
-Audio="*res://global/audio.tscn"
-ScreenFade="*res://global/screen_fade.tscn"
+SignalBus="*res://autoloads/signal_bus.gd"
+Audio="*res://autoloads/audio.tscn"
+ScreenFade="*res://autoloads/screen_fade.tscn"
+Global="*res://autoloads/global.gd"
 
 [display]
 

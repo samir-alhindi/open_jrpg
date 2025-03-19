@@ -1,8 +1,9 @@
 extends CanvasLayer
 
-@export var battles: Array[PackedScene]
+var battles: Array[BattleData] 
 @onready var ui_box: NinePatchRect = $UIBox
 @onready var label_container: VBoxContainer = $UIBox/LabelContainer
+
 var index: int = 0:
 	set(val):
 		if val < 0 or val >= battles.size(): return
@@ -12,14 +13,21 @@ var index: int = 0:
 		var labelToFocus: Label = label_container.get_child(index)
 		labelToFocus.modulate.a = 1
 var isSelecting: bool = false
+
 func _ready() -> void:
 	ScreenFade.fade_into_game()
 	$VBoxContainer/ViewBattlesButton.grab_focus()
+	
+	# Load battles from disk:
+	var battlePaths: PackedStringArray = DirAccess.get_files_at("res://battle_data/")
+	for battlePath: String in battlePaths:
+		var battle: BattleData = load("res://battle_data/" + battlePath)
+		battles.append(battle)
+	
 	#Creating labels for the battles:
-	for battle: PackedScene in battles:
+	for battle: BattleData in battles:
 		var label: Label = Label.new()
-		var battleInstant = battle.instantiate()
-		label.text = battleInstant.battleName
+		label.text = battle.battleName
 		label.modulate.a = 0.5
 		label_container.add_child(label)
 	#Begin selecting battle:
@@ -34,7 +42,8 @@ func _input(event: InputEvent) -> void:
 		elif event.is_action_pressed("ui_accept"):
 			ScreenFade.fade_into_black()
 			await get_tree().create_timer(0.5).timeout
-			get_tree().change_scene_to_packed(battles[index])
+			Global.battle = battles[index]
+			get_tree().change_scene_to_file("uid://p86u62q8dtxq")
 
 func _on_view_battles_button_pressed() -> void:
 	ui_box.show()
