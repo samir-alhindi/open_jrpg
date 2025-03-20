@@ -6,6 +6,6 @@ enum ActionTargetType {
 	ALL_ALLIES, ## This action targets all the ally battlers in this battle.
 	}
 ## The number of allies this item can be used on.
-@export var actionTargetType: ActionTargetType = 0
+@export var actionTargetType: ActionTargetType = ActionTargetType.SINGLE_ALLY
 ## How much health this item will recover.
 @export_range(0, 9999999, 5) var healthAmount: int = 50

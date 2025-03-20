@@ -1,15 +1,9 @@
 class_name Battler extends Node2D
 
-@onready var action_decider: Node = $ActionDecider
+
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
 var isDefeated: bool = false
-
-var actionAftermathTexts := {
-	"took damage" : "%s took %d damage !",
-	"defend self" : "%s's defense increased by %d !",
-	"heal" : "%s recovered %d health!"
-}
 
 signal deciding_finished
 signal performing_action_finished

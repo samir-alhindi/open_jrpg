@@ -1,21 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://skjtio160esb"]
+[gd_scene load_steps=5 format=3 uid="uid://skjtio160esb"]
 
 [ext_resource type="Script" path="res://abstract_battler/battler.gd" id="1_2dchc"]
-
-[sub_resource type="Animation" id="Animation_b880a"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_hyjqv"]
 resource_name = "fade_out"
@@ -50,7 +35,6 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qi1g1"]
 _data = {
-"RESET": SubResource("Animation_b880a"),
 "fade_out": SubResource("Animation_hyjqv"),
 "heal": SubResource("Animation_eewsq")
 }
@@ -59,7 +43,6 @@ _data = {
 script = ExtResource("1_2dchc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-animation = &""
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 process_mode = 3

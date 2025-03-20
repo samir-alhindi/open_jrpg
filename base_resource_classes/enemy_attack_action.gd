@@ -7,6 +7,6 @@ enum ActionTargetType {
 
 @export_category("Attack data")
 ## Which battler(s) type this action will target.
-@export var actionTargetType: ActionTargetType = 0
+@export var actionTargetType: ActionTargetType = ActionTargetType.SINGLE_ALLY
 ## How much damage this attack will deal.
 @export_range(0, 999999, 5) var damageAmount: int = 50

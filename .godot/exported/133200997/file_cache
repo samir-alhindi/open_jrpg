@@ -1,8 +1,8 @@
-res://ally_battler/ally_battler.tscn::230a5a18b3b947f6713ebe1a9d4c4e20::1742395545::res://.godot/exported/133200997/export-08b547ae2de96df1096bf8e412f09e3d-ally_battler.scn
-res://battle/battle.tscn::7fdee04c1be7d0beb939be78c1f2ea83::1742394400::res://.godot/exported/133200997/export-48a0bed5f71b216925c4f3fa91ede4e7-battle.scn
-res://enemy_battler/enemy_battler.tscn::c119b11ad9f722f0cb075a1d71cdcf59::1742394328::res://.godot/exported/133200997/export-a7bfaee3a31f4689523a76c1f967615e-enemy_battler.scn
+res://ally_battler/ally_battler.tscn::230a5a18b3b947f6713ebe1a9d4c4e20::1742493880::res://.godot/exported/133200997/export-08b547ae2de96df1096bf8e412f09e3d-ally_battler.scn
+res://battle/battle.tscn::7fdee04c1be7d0beb939be78c1f2ea83::1742493967::res://.godot/exported/133200997/export-48a0bed5f71b216925c4f3fa91ede4e7-battle.scn
+res://enemy_battler/enemy_battler.tscn::c119b11ad9f722f0cb075a1d71cdcf59::1742493851::res://.godot/exported/133200997/export-a7bfaee3a31f4689523a76c1f967615e-enemy_battler.scn
 res://UI/text_window.tscn::4e160ddb2d91b9484a5f88612e88814d::1742208973::res://.godot/exported/133200997/export-0608dca1403ba021d49548ab893f08a6-text_window.scn
-res://UI/title_screen.tscn::18b4a134ab5d34d89e489580e3678022::1742382899::res://.godot/exported/133200997/export-f1d0b937bba34ac52fc8167d7661a515-title_screen.scn
+res://UI/title_screen.tscn::18b4a134ab5d34d89e489580e3678022::1742467796::res://.godot/exported/133200997/export-f1d0b937bba34ac52fc8167d7661a515-title_screen.scn
 res://UI/maria_theme.tres::9048b2791458852a46c676fd1832c67c::1742393763::res://.godot/exported/133200997/export-b26bdd6bc4c2dfee234a6b410c80ed9a-maria_theme.res
 res://UI/samir_theme.tres::9bdaaa60012682ef49848290c7af3658::1742393505::res://.godot/exported/133200997/export-e96b81cb701cc7c76877eeefb5afad4a-samir_theme.res
 res://actions/ally_actions/attack_actions/punch.tres::cd949ec7ae64c74f1665779f78d5a98a::1742394575::res://.godot/exported/133200997/export-03b3b960ec0bb1500664f5c217f2d70d-punch.res
@@ -20,7 +20,7 @@ res://actions/ally_actions/attack_actions/bow_all.tres::b84273c8d7742ce026600c40
 res://autoloads/audio.tscn::70f34a10a1240b479921a51b081c3c86::1742377160::res://.godot/exported/133200997/export-bc33bf79014e971293c1d5e8f4dbf632-audio.scn
 res://autoloads/screen_fade.tscn::c23c71e354547d464c93f541107bb1ce::1742377160::res://.godot/exported/133200997/export-ca8344d49199ec17ed40be48a1ff22cc-screen_fade.scn
 res://UI/rayyan_theme.tres::a8593342262610a8fee446d028de5a0a::1742393734::res://.godot/exported/133200997/export-93bb5cb82a4319039a53485c6f491cf5-rayyan_theme.res
-res://abstract_battler/battler.tscn::8c7386c5557cf71d69a7bd2622dfa8e3::1742393690::res://.godot/exported/133200997/export-f61c6bc66481d78ad9e3f541560bc0dc-battler.scn
+res://abstract_battler/battler.tscn::fcab77eb57a3e2dff92c58ec17975571::1742493851::res://.godot/exported/133200997/export-f61c6bc66481d78ad9e3f541560bc0dc-battler.scn
 res://actions/enemy_actions/attack_actions/debug.tres::26d6cc9df2d8ebb1b56ccf38259b94b0::1742393959::res://.godot/exported/133200997/export-73b09178915a409b77f5dd0d97cb8a29-debug.res
 res://battle_data/demo.tres::cfa70cb0d452d99367884cb869ba08a5::1742393891::res://.godot/exported/133200997/export-b3c3a748f55db57821d91c8946c6475c-demo.res
 res://stats/ally_stats/maria.tres::c99914defcdb134e6bc0615d4359992d::1742394779::res://.godot/exported/133200997/export-cd4b708397d05dc1658d3d20df664f37-maria.res

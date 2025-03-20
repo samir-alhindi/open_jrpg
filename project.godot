@@ -22,6 +22,10 @@ Audio="*res://autoloads/audio.tscn"
 ScreenFade="*res://autoloads/screen_fade.tscn"
 Global="*res://autoloads/global.gd"
 
+[debug]
+
+settings/stdout/verbose_stdout=true
+
 [display]
 
 window/size/viewport_width=576

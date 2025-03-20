@@ -1,7 +1,5 @@
 class_name EnemyBattler extends Battler
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-
 @export var stats: EnemyStats
 @onready var actions: Array[EnemyAction] = stats.actions
 
@@ -15,14 +13,8 @@ var none: int = 0
 var isDefending: bool = false
 var defendAmount: int
 
-@onready var health: int = stats.health:
-	set(value):
-		health = value
-		health_label.text = "Health: " + str(health)
-@onready var strength: int = stats.strength:
-	set(value):
-		strength = value
-		strength_label.text = "Strength: " + str(strength)
+@onready var health: int = stats.health
+@onready var strength: int = stats.strength
 @onready var magicStrength: int = stats.magicStrength
 @onready var defense: int = stats.defense
 @onready var speed: int = stats.speed
@@ -138,8 +130,3 @@ func handle_defense() -> void:
 	if isDefending:
 		defense -= defendAmount
 		isDefending = false
-
-#Debugging:
-@onready var health_label: Label = %HealthLabel
-@onready var strength_label: Label = %StrengthLabel
-@onready var defense_label: Label = %DefenseLabel

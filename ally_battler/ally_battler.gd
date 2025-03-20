@@ -200,9 +200,7 @@ func damage_actions(battler: Battler, isMagic: bool) -> void:
 #For Displaying stats:
 @onready var health_label: Label = %HealthLabel
 @onready var magic_points_label: Label = %MagicPointsLabel
-@onready var strength_label: Label = %StrengthLabel
-@onready var defense_label: Label = %DefenseLabel
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	health_label.text = "Health: " + str(health)
 	magic_points_label.text = "Magic points: " + str(magicPoints)
 
