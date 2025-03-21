@@ -25,7 +25,32 @@ func _ready() -> void:
 	SignalBus.display_text.connect(display_text)
 	SignalBus.cursor_come_to_me.connect(on_cursor_come_to_me)
 	ScreenFade.fade_into_game()
+	rename_enemies()
 	let_battlers_decide_actions()
+
+func rename_enemies() -> void:
+	# Dict to keep track of num of repeated enemies:
+	var names: Dictionary = {}
+	var enemies: Array[Node] = get_tree().get_nodes_in_group("enemies")
+	for enemy: EnemyBattler in enemies:
+		# Check if this enemy is repeated:
+		if enemy.name_ in names:
+			# It's repeated: Add a number to it's name
+			enemy.name_ += " " + str(names[enemy.name_] + 1)
+			var formated: String = enemy.name_.get_slice(" ", 0)
+			# Increase the count of this repeated enemy
+			names[formated] += 1
+			# Special case where we rename the 1st duplicated enemy:
+			if names[formated] == 2:
+				# Find the enemy:
+				for enemy_: EnemyBattler in enemies:
+					if enemy_.name_ == formated:
+						enemy_.name_ += " 1"
+						break
+		# 1st time seeing this enemy:
+		else:
+			names[enemy.name_] = 1
+			enemy.name_ = enemy.name_ # Force label to update.
 
 func load_battlers(battlers: Array, battlerFile: PackedScene, circle: Marker2D) -> void:
 	for i: int in range(len(battlers)):

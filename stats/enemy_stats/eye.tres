@@ -177,7 +177,7 @@ animations = [{
 
 [resource]
 script = ExtResource("2_ilxkb")
-name = "Eye"
+name_ = "Eye"
 texture_scale = 2.0
 actions = Array[ExtResource("1_2t8ik")]([ExtResource("2_to2i3"), ExtResource("3_qb034"), ExtResource("4_p014m")])
 health = 400

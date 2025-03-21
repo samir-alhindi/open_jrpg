@@ -3,7 +3,7 @@ class_name EnemyStats extends Resource
 
 @export_category("Main traits")
 ## The battler's display name in battle.
-@export var name: String
+@export var name_: String
 ## How much will the texture will be up/down scalled ?
 @export var texture_scale: float = 1.0
 

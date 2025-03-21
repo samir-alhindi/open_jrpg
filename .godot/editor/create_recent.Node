@@ -1,3 +1,4 @@
+Label
 AnimationPlayer
 Sprite2D
 Marker2D
@@ -9,6 +10,5 @@ CanvasLayer
 ColorRect
 AudioStreamPlayer
 ProgressBar
-Label
 VBoxContainer
 Button

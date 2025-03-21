@@ -107,7 +107,7 @@ func start_selecting_single_battler():
 	await get_tree().create_timer(0.1).timeout
 	for battler: Battler in get_tree().get_nodes_in_group(currentGroup):
 		var label: Label = Label.new()
-		label.text = battler.stats.name
+		label.text = battler.name_
 		label.modulate.a = 0.5
 		parent.options_container.add_child(label)
 	battlerIndex = 0

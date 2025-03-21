@@ -18,7 +18,10 @@ var defendAmount: int
 @onready var magicStrength: int = stats.magicStrength
 @onready var defense: int = stats.defense
 @onready var speed: int = stats.speed
-@onready var name_: String = stats.name
+@onready var name_: String = stats.name_:
+	set(val):
+		name_ = val
+		%NameLabel.text = val
 @onready var defeatedText: String = stats.defeatedText
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 

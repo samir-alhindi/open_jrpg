@@ -74,13 +74,13 @@ func cancel_action() -> void:
 	parent.button_container.show()
 	parent.attack_button.grab_focus()
 
-func start_selecting_single_enemy():
+func start_selecting_single_enemy() -> void:
 	clear_labels()
 	#Wait until all labels are freed:
 	await get_tree().create_timer(0.1).timeout
 	for enemyBattler: EnemyBattler in get_tree().get_nodes_in_group("enemies"):
 		var label: Label = Label.new()
-		label.text = enemyBattler.stats.name
+		label.text = enemyBattler.name_
 		label.modulate.a = 0.5
 		parent.options_container.add_child(label)
 	enemyIndex = 0

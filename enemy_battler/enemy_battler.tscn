@@ -7,5 +7,13 @@
 script = ExtResource("2_8y5u6")
 stats = null
 
-[node name="VBoxContainer" parent="." index="1"]
+[node name="HealthLabel" parent="VBoxContainer" index="0"]
 visible = false
+
+[node name="MagicPointsLabel" parent="VBoxContainer" index="1"]
+visible = false
+
+[node name="NameLabel" parent="VBoxContainer" index="2"]
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 6
+theme_override_font_sizes/font_size = 14
