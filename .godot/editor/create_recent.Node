@@ -1,8 +1,8 @@
+AnimationPlayer
 Sprite2D
 Marker2D
 Path2D
 Node
-AnimationPlayer
 AnimatedSprite2D
 EnemyBattler
 CanvasLayer

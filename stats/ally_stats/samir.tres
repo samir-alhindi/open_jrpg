@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AllyStats" load_steps=77 format=3 uid="uid://cnxgagq22hko"]
+[gd_resource type="Resource" script_class="AllyStats" load_steps=59 format=3 uid="uid://cnxgagq22hko"]
 
 [ext_resource type="Script" path="res://base_resource_classes/ally_attack_action.gd" id="1_ycnx8"]
 [ext_resource type="Resource" uid="uid://ijbevejdtbt5" path="res://actions/ally_actions/attack_actions/slash.tres" id="2_6rddm"]
@@ -56,24 +56,6 @@
 [ext_resource type="Texture2D" uid="uid://cl05x0kfls70x" path="res://assets/sprites/samir_sprites/01_idle/idle_6.png" id="55_s8v78"]
 [ext_resource type="Texture2D" uid="uid://bt342sx3c1pql" path="res://assets/sprites/samir_sprites/01_idle/idle_7.png" id="56_2kl1b"]
 [ext_resource type="Texture2D" uid="uid://c5ell0xoflwu5" path="res://assets/sprites/samir_sprites/01_idle/idle_8.png" id="57_bgwuh"]
-[ext_resource type="Texture2D" uid="uid://c4cf5x606ac2i" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_1.png" id="58_1u5wo"]
-[ext_resource type="Texture2D" uid="uid://l4o6j0skmhhf" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_2.png" id="59_oxxya"]
-[ext_resource type="Texture2D" uid="uid://u2r6gk8su7b6" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_3.png" id="60_xfv25"]
-[ext_resource type="Texture2D" uid="uid://dcq4kndk1blhy" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_4.png" id="61_ku23p"]
-[ext_resource type="Texture2D" uid="uid://blgm47wl6kmxn" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_5.png" id="62_47saq"]
-[ext_resource type="Texture2D" uid="uid://cwirxl2q75i8u" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_6.png" id="63_s66ow"]
-[ext_resource type="Texture2D" uid="uid://dyc3n6i72h3l3" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_7.png" id="64_qse1l"]
-[ext_resource type="Texture2D" uid="uid://bm2y7yi8ukwbx" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_8.png" id="65_aliqb"]
-[ext_resource type="Texture2D" uid="uid://boc0t806rylbr" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_9.png" id="66_1nchi"]
-[ext_resource type="Texture2D" uid="uid://l214q1dlhg6b" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_10.png" id="67_80ja1"]
-[ext_resource type="Texture2D" uid="uid://bqmv531s5qo6u" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_11.png" id="68_l3x26"]
-[ext_resource type="Texture2D" uid="uid://bmn56gyal1r5r" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_12.png" id="69_vwmmu"]
-[ext_resource type="Texture2D" uid="uid://bux7s03lwv2r" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_13.png" id="70_g8ydq"]
-[ext_resource type="Texture2D" uid="uid://csbl0eu2647jt" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_14.png" id="71_lyd77"]
-[ext_resource type="Texture2D" uid="uid://c11v8o8y3wxqc" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_15.png" id="72_ro6yf"]
-[ext_resource type="Texture2D" uid="uid://mnpupumnq534" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_16.png" id="73_cvjkl"]
-[ext_resource type="Texture2D" uid="uid://icbe0ws4f444" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_17.png" id="74_7755k"]
-[ext_resource type="Texture2D" uid="uid://whwd7lbja4la" path="res://assets/sprites/samir_sprites/offensive_magic/sp_atk_18.png" id="75_474hy"]
 [ext_resource type="Theme" uid="uid://7oinam54er24" path="res://UI/samir_theme.tres" id="76_4rj1g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jumq5"]
@@ -114,7 +96,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 8.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -254,62 +236,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("58_1u5wo")
+"texture": ExtResource("10_ipfbn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("59_oxxya")
+"texture": ExtResource("11_y5bcp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("60_xfv25")
+"texture": ExtResource("12_x0x5o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("61_ku23p")
+"texture": ExtResource("13_ifuds")
 }, {
 "duration": 1.0,
-"texture": ExtResource("62_47saq")
+"texture": ExtResource("14_22wxp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("63_s66ow")
+"texture": ExtResource("15_bkjup")
 }, {
 "duration": 1.0,
-"texture": ExtResource("64_qse1l")
+"texture": ExtResource("16_k7xd4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("65_aliqb")
+"texture": ExtResource("17_8kmnf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("66_1nchi")
+"texture": ExtResource("18_dpljw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("67_80ja1")
+"texture": ExtResource("19_04m1e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("68_l3x26")
-}, {
-"duration": 1.0,
-"texture": ExtResource("69_vwmmu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("70_g8ydq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("71_lyd77")
-}, {
-"duration": 1.0,
-"texture": ExtResource("72_ro6yf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("73_cvjkl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("74_7755k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("75_474hy")
+"texture": ExtResource("20_j8eur")
 }],
 "loop": false,
 "name": &"offensive_magic",
-"speed": 10.0
+"speed": 11.0
 }]
 
 [resource]

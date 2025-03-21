@@ -23,6 +23,7 @@ func _ready() -> void:
 	# Load enemies:
 	load_battlers(battleData.enemies, ENEMY_BATTLER, $EnemySpawnCircle)
 	SignalBus.display_text.connect(display_text)
+	SignalBus.cursor_come_to_me.connect(on_cursor_come_to_me)
 	ScreenFade.fade_into_game()
 	let_battlers_decide_actions()
 
@@ -90,6 +91,18 @@ func display_text(text: String) -> void:
 	text_window.show()
 	text_label.text = text
 
+func on_cursor_come_to_me(my_position: Vector2, is_ally: bool) -> void:
+	var offset: Vector2
+	if is_ally:
+		$Cursor/AnimationPlayer.play("point_at_ally")
+		offset = Vector2(-32, 32)
+	else:
+		$Cursor/AnimationPlayer.play("point_at_enemy")
+		offset = Vector2(32, 32)
+	var finalValue: Vector2 = my_position + offset
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property($Cursor, "global_position", finalValue, 0.1)
+
 func check_if_allies_won() -> bool:
 	if get_tree().get_nodes_in_group("enemies").size() <= 0:
 		return true
@@ -101,6 +114,7 @@ func check_if_enemies_won() -> bool:
 	return false
 
 func battle_won() -> void:
+	$Cursor/AnimationPlayer.play("fade")
 	SignalBus.display_text.emit("Battle won !")
 	battle_music.playing = false
 	Audio.won.play()
@@ -110,6 +124,7 @@ func battle_won() -> void:
 	get_tree().change_scene_to_file("uid://0xc8hpp1566k")
 
 func battle_lost() -> void:
+	$Cursor/AnimationPlayer.play("fade")
 	SignalBus.display_text.emit("Battle lost...")
 	Audio.lost.play()
 	await SignalBus.text_window_closed

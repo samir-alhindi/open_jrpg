@@ -1,8 +1,11 @@
-C:/Users/Samir/Desktop/open_jrpg_v1.0.2
-res://battle
-res://enemy_battler
+C:/Users/Samir/Desktop/open_jrpg_1.1
+res://assets/sprites/samir_sprites/attack
+res://assets/sprites/maria_sprites/heal_magic
+res://assets/sprites/maria_sprites/attack
 res://ally_battler
 res://abstract_battler
+res://battle
+res://enemy_battler
 C:/Users/Samir/Desktop
 res://assets/sprites/rayyan_sprites/attack
 res://assets/sprites/maria_sprites/dead
@@ -15,8 +18,5 @@ res://assets/sprites/rayyan_sprites/defend
 res://assets/sprites/rayyan_sprites/idle
 res://actions/ally_actions/attack_actions
 res://assets/sprites/samir_sprites/offensive_magic
-res://assets/sprites/maria_sprites/heal_magic
 res://assets/sprites/maria_sprites/offensive_magic
 res://assets/sprites/maria_sprites/defend
-res://assets/sprites/samir_sprites/defend
-res://assets/sprites/eye_sprites

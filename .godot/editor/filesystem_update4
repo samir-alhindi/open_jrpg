@@ -1,13 +1,1 @@
 res://battle/battle.tscn
-res://ally_battler/ally_battler.tscn
-res://abstract_battler/battler.tscn
-res://abstract_battler/battler.gd
-res://ally_battler/ally_battler.gd
-res://enemy_battler/enemy_battler.tscn
-res://enemy_battler/enemy_battler.gd
-res://base_resource_classes/enemy_attack_action.gd
-res://base_resource_classes/ally_item_action.gd
-res://autoloads/signal_bus.gd
-res://base_resource_classes/ally_attack_action.gd
-res://base_resource_classes/ally_magic_action.gd
-res://battle/battle.gd

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AllyStats" load_steps=105 format=3 uid="uid://bbwdd2xv1bf1i"]
+[gd_resource type="Resource" script_class="AllyStats" load_steps=73 format=3 uid="uid://bbwdd2xv1bf1i"]
 
 [ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="1_xwhoi"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_attack_action.gd" id="1_y8gyu"]
@@ -71,38 +71,6 @@
 [ext_resource type="Texture2D" uid="uid://d3ufrb1qriw1p" path="res://assets/sprites/maria_sprites/heal_magic/heal_10.png" id="37_erbry"]
 [ext_resource type="Texture2D" uid="uid://b3cfsy4hrf3gl" path="res://assets/sprites/maria_sprites/heal_magic/heal_11.png" id="38_o6va7"]
 [ext_resource type="Texture2D" uid="uid://dqhmewna3k71d" path="res://assets/sprites/maria_sprites/heal_magic/heal_12.png" id="39_88rlj"]
-[ext_resource type="Texture2D" uid="uid://4cc14xjhw3mo" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_1.png" id="43_hgxx4"]
-[ext_resource type="Texture2D" uid="uid://dr5bmqnufl8dw" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_2.png" id="44_hfb7g"]
-[ext_resource type="Texture2D" uid="uid://jt74y2c4uu3" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_3.png" id="45_6uvqk"]
-[ext_resource type="Texture2D" uid="uid://cbu2twh834hui" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_4.png" id="46_f3j5t"]
-[ext_resource type="Texture2D" uid="uid://bviu32d0rtm0y" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_5.png" id="47_qy1np"]
-[ext_resource type="Texture2D" uid="uid://q0t66f6h40qf" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_6.png" id="48_xs05n"]
-[ext_resource type="Texture2D" uid="uid://ct7xhyect1ear" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_7.png" id="49_6p074"]
-[ext_resource type="Texture2D" uid="uid://f4tc4n3ov7b1" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_8.png" id="50_1qqdv"]
-[ext_resource type="Texture2D" uid="uid://mrmwm20mun7h" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_9.png" id="51_0vk1i"]
-[ext_resource type="Texture2D" uid="uid://dbuu7o3gpb0xu" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_10.png" id="52_6jxxc"]
-[ext_resource type="Texture2D" uid="uid://dvosk7as2l5v1" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_11.png" id="53_2jwci"]
-[ext_resource type="Texture2D" uid="uid://dey8g15gktnd" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_12.png" id="54_pvjqv"]
-[ext_resource type="Texture2D" uid="uid://db3sbcps00xlm" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_13.png" id="55_xhgjg"]
-[ext_resource type="Texture2D" uid="uid://c3vbmd2kp5lfq" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_14.png" id="56_unwft"]
-[ext_resource type="Texture2D" uid="uid://dt836fkgstiqx" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_15.png" id="57_bd8v6"]
-[ext_resource type="Texture2D" uid="uid://cq4em6fmpesl4" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_16.png" id="58_oe2wr"]
-[ext_resource type="Texture2D" uid="uid://cspp4b6loqyex" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_17.png" id="59_oniue"]
-[ext_resource type="Texture2D" uid="uid://dppws542kkrhl" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_18.png" id="60_7yimh"]
-[ext_resource type="Texture2D" uid="uid://cchpsitowgf4c" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_19.png" id="61_ktknm"]
-[ext_resource type="Texture2D" uid="uid://cpprwo03gu22m" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_20.png" id="62_fghta"]
-[ext_resource type="Texture2D" uid="uid://b2vlr6y7kpse8" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_21.png" id="63_mbmng"]
-[ext_resource type="Texture2D" uid="uid://5mw5g8v0vmy7" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_22.png" id="64_5oi2f"]
-[ext_resource type="Texture2D" uid="uid://bvbtk3gqu2s7t" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_23.png" id="65_0650c"]
-[ext_resource type="Texture2D" uid="uid://bxc6l7yg7nmqa" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_24.png" id="66_122y1"]
-[ext_resource type="Texture2D" uid="uid://co658rds71b3j" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_25.png" id="67_6ogot"]
-[ext_resource type="Texture2D" uid="uid://cpcxcw8652pd1" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_26.png" id="68_3h5um"]
-[ext_resource type="Texture2D" uid="uid://dhasqvbwtw8ax" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_27.png" id="69_w600q"]
-[ext_resource type="Texture2D" uid="uid://d1w5fps6k6wv0" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_28.png" id="70_gc8ng"]
-[ext_resource type="Texture2D" uid="uid://b58hwm5jt4sro" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_29.png" id="71_asnqm"]
-[ext_resource type="Texture2D" uid="uid://bfmogy2iluvdq" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_30.png" id="72_50eym"]
-[ext_resource type="Texture2D" uid="uid://d2h2564gy44ra" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_31.png" id="73_n3p2s"]
-[ext_resource type="Texture2D" uid="uid://4fpww61f7sc6" path="res://assets/sprites/maria_sprites/offensive_magic/sp_atk_32.png" id="74_sdmha"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sxyxg"]
 animations = [{
@@ -324,104 +292,44 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("43_hgxx4")
+"texture": ExtResource("28_qrj6b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("44_hfb7g")
+"texture": ExtResource("29_a8l3b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("45_6uvqk")
+"texture": ExtResource("30_5guwi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("46_f3j5t")
+"texture": ExtResource("31_rprtp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("47_qy1np")
+"texture": ExtResource("32_p6uh6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("48_xs05n")
+"texture": ExtResource("33_mj75s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("49_6p074")
+"texture": ExtResource("34_dnp73")
 }, {
 "duration": 1.0,
-"texture": ExtResource("50_1qqdv")
+"texture": ExtResource("35_vikuw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("51_0vk1i")
+"texture": ExtResource("36_x2la6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("52_6jxxc")
+"texture": ExtResource("37_erbry")
 }, {
 "duration": 1.0,
-"texture": ExtResource("53_2jwci")
+"texture": ExtResource("38_o6va7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("54_pvjqv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("55_xhgjg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("56_unwft")
-}, {
-"duration": 1.0,
-"texture": ExtResource("57_bd8v6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("58_oe2wr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("59_oniue")
-}, {
-"duration": 1.0,
-"texture": ExtResource("60_7yimh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("61_ktknm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("62_fghta")
-}, {
-"duration": 1.0,
-"texture": ExtResource("63_mbmng")
-}, {
-"duration": 1.0,
-"texture": ExtResource("64_5oi2f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("65_0650c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("66_122y1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("67_6ogot")
-}, {
-"duration": 1.0,
-"texture": ExtResource("68_3h5um")
-}, {
-"duration": 1.0,
-"texture": ExtResource("69_w600q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("70_gc8ng")
-}, {
-"duration": 1.0,
-"texture": ExtResource("71_asnqm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("72_50eym")
-}, {
-"duration": 1.0,
-"texture": ExtResource("73_n3p2s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("74_sdmha")
+"texture": ExtResource("39_88rlj")
 }],
 "loop": false,
 "name": &"offensive_magic",
-"speed": 12.0
+"speed": 8.0
 }]
 
 [resource]

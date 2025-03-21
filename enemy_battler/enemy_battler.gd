@@ -46,6 +46,7 @@ func decide_action():
 	self.deciding_finished.emit()
 
 func perform_action() -> void:
+	SignalBus.cursor_come_to_me.emit(self.global_position, false)
 	SignalBus.display_text.emit(name_+" "+actionToPerform.actionText)
 	#play action sound:
 	Audio.action.stream = actionToPerform.sound

@@ -254,7 +254,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"defend",
-"speed": 8.0
+"speed": 13.0
 }, {
 "frames": [],
 "loop": false,

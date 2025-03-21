@@ -46,6 +46,8 @@ var targetBattlers: Array[Battler]
 var none: int = 0
 
 func _ready() -> void:
+	# Show battler name:
+	$"%NameLabel".text = stats.name
 	health_bar.max_value = self.health
 	magic_bar.max_value = magicPoints
 	health += 0; magicPoints += 0 # init the progress bars.
@@ -63,6 +65,7 @@ func _ready() -> void:
 	animated_sprite_2d.play("idle")
 
 func decide_action() -> void:
+	SignalBus.cursor_come_to_me.emit(self.global_position, true)
 	if items.size() <= 0:
 		item_button.hide()
 	defending_manager.manage_defense_stat()
@@ -72,6 +75,7 @@ func decide_action() -> void:
 	attack_button.grab_focus()
 
 func perform_action() -> void:
+	SignalBus.cursor_come_to_me.emit(self.global_position, true)
 	SignalBus.display_text.emit(name_+" "+actionToPerform.actionText)
 	#play action sound:
 	Audio.action.stream = actionToPerform.sound
