@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_fw8i5")
 actionTargetType = 0
-damageAmount = 100
+damageAmount = 40
 enemyActionChance = 1.0
 actionText = "Fired a laser from it's eye !"
 sound = ExtResource("2_wte53")

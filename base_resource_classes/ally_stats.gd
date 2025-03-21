@@ -26,12 +26,12 @@ class_name AllyStats extends Resource
 @export_range(1, 99999999) var health: int = 120
 ## Used to cast magical abilities.
 @export_range(0, 1000) var magicPoints: int = 20
-## Strength is in negative because it makes calculations easier 
-@export_range(1, 99999999) var strength: int = -50 
+## Added to the attack action's strength.
+@export_range(1, 99999999) var strength: int = 50
 ## Lets you take less damage from attacks.
 @export_range(0, 100) var defense: int = 10
-## Magic strength is in negative because it makes calculations easier 
-@export_range(1, 99999999) var magicStrength: int = -10
+## Added to magic action's strength.
+@export_range(1, 99999999) var magicStrength: int = 10
 ## The battler with the highest speed acts first.
 @export_range(0, 50) var speed: int = 10
 
