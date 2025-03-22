@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AllyStats" load_steps=59 format=3 uid="uid://cnxgagq22hko"]
+[gd_resource type="Resource" script_class="AllyStats" load_steps=61 format=3 uid="uid://cnxgagq22hko"]
 
 [ext_resource type="Script" path="res://base_resource_classes/ally_attack_action.gd" id="1_ycnx8"]
 [ext_resource type="Resource" uid="uid://ijbevejdtbt5" path="res://actions/ally_actions/attack_actions/slash.tres" id="2_6rddm"]
@@ -6,7 +6,9 @@
 [ext_resource type="Resource" uid="uid://dtv4tf41ul5p" path="res://actions/ally_actions/defend_actions/defend.tres" id="4_fwi7c"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_item_action.gd" id="5_orqxb"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_magic_action.gd" id="6_5ween"]
+[ext_resource type="Resource" uid="uid://d4h702fl6pwye" path="res://actions/ally_actions/item_actions/healing_actions/golden_apple.tres" id="6_13s4i"]
 [ext_resource type="Resource" uid="uid://fq77qto0fv7s" path="res://actions/ally_actions/magic_actions/offensive_magic_actions/burn_spell.tres" id="7_qc3ay"]
+[ext_resource type="Resource" uid="uid://baxl4pvy5tkf2" path="res://actions/ally_actions/item_actions/healing_actions/fairy_in_bottle.tres" id="7_sti4s"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="9_vaux4"]
 [ext_resource type="Texture2D" uid="uid://baelw7geod3vl" path="res://assets/sprites/samir_sprites/attack/1_atk_1.png" id="10_ipfbn"]
 [ext_resource type="Texture2D" uid="uid://xnjgy0xw27gw" path="res://assets/sprites/samir_sprites/attack/1_atk_2.png" id="11_y5bcp"]
@@ -282,7 +284,7 @@ can_use_magic = true
 attackActions = Array[ExtResource("1_ycnx8")]([ExtResource("2_6rddm"), ExtResource("3_5e0ya")])
 defendAction = ExtResource("4_fwi7c")
 magicActions = Array[ExtResource("6_5ween")]([ExtResource("7_qc3ay")])
-items = Array[ExtResource("5_orqxb")]([])
+items = Array[ExtResource("5_orqxb")]([ExtResource("6_13s4i"), ExtResource("6_13s4i"), ExtResource("7_sti4s")])
 health = 160
 magicPoints = 20
 strength = 80

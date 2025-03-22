@@ -1,3 +1,5 @@
+AllyHealingItemAction
+AllyAction
 EnemyAttackAction
 BattleData
 AllyStats

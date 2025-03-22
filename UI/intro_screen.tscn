@@ -19,6 +19,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CenterContainer"]
+[node name="MessageLabel" type="Label" parent="CenterContainer"]
 layout_mode = 2
 text = "'Left click' with your mouse anywhere to focus the screen."

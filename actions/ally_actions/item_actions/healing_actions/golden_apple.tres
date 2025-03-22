@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AllyHealingItemAction" load_steps=3 format=3 uid="uid://d4h702fl6pwye"]
+
+[ext_resource type="Script" path="res://base_resource_classes/ally_healing_item_action.gd" id="1_mucli"]
+[ext_resource type="AudioStream" uid="uid://dor1nibnqasb4" path="res://assets/SFX/bite.mp3" id="2_utdi0"]
+
+[resource]
+script = ExtResource("1_mucli")
+healthAmount = 80
+actionTargetType = 0
+actionText = "took out the shiny apple !"
+actionName = "Golden apple"
+sound = ExtResource("2_utdi0")

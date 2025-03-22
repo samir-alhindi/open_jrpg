@@ -1,8 +1,8 @@
+res://ally_battler
+res://actions/ally_actions/item_actions/healing_actions
 res://UI
-C:/Users/Samir/Desktop/open_jrpg_1.3.0
 res://battle
 res://enemy_battler
-res://ally_battler
 res://assets/sprites/samir_sprites/attack
 res://assets/sprites/maria_sprites/heal_magic
 res://assets/sprites/maria_sprites/attack

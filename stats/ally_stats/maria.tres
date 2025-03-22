@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AllyStats" load_steps=73 format=3 uid="uid://bbwdd2xv1bf1i"]
+[gd_resource type="Resource" script_class="AllyStats" load_steps=75 format=3 uid="uid://bbwdd2xv1bf1i"]
 
 [ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="1_xwhoi"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_attack_action.gd" id="1_y8gyu"]
@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://dtv4tf41ul5p" path="res://actions/ally_actions/defend_actions/defend.tres" id="3_2t8cm"]
 [ext_resource type="Theme" uid="uid://bq1murg03asq7" path="res://UI/maria_theme.tres" id="3_axd84"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_item_action.gd" id="5_ggp6d"]
+[ext_resource type="Resource" uid="uid://d4h702fl6pwye" path="res://actions/ally_actions/item_actions/healing_actions/golden_apple.tres" id="5_jaufu"]
+[ext_resource type="Resource" uid="uid://baxl4pvy5tkf2" path="res://actions/ally_actions/item_actions/healing_actions/fairy_in_bottle.tres" id="6_08a1k"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_magic_action.gd" id="6_ds7we"]
 [ext_resource type="Resource" uid="uid://qs2uxjyytj0e" path="res://actions/ally_actions/magic_actions/healing_magic_actions/single_heal.tres" id="7_nx2dx"]
 [ext_resource type="Resource" uid="uid://c0jkw1rnk40nw" path="res://actions/ally_actions/magic_actions/offensive_magic_actions/ice_spear.tres" id="8_2ah47"]
@@ -341,7 +343,7 @@ can_use_magic = true
 attackActions = Array[ExtResource("1_y8gyu")]([ExtResource("2_lpi16")])
 defendAction = ExtResource("3_2t8cm")
 magicActions = Array[ExtResource("6_ds7we")]([ExtResource("8_2ah47"), ExtResource("7_nx2dx")])
-items = Array[ExtResource("5_ggp6d")]([])
+items = Array[ExtResource("5_ggp6d")]([ExtResource("5_jaufu"), ExtResource("6_08a1k")])
 health = 100
 magicPoints = 70
 strength = 10

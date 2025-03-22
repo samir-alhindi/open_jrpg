@@ -79,7 +79,7 @@ func start_selecting_single_ally() -> void:
 		label.text = allyBattler.stats.name
 		label.modulate.a = 0.5
 		parent.options_container.add_child(label)
-	itemIndex = 0
+	allyIndex = 0
 
 func select_all_allies_and_finish() -> void:
 	parent.items.remove_at(itemIndex)

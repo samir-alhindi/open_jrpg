@@ -176,6 +176,22 @@ func perform_action() -> void:
 				# Wait a moment:
 				await get_tree().create_timer(0.1).timeout
 			#endregion
+			
+		elif actionToPerform is AllyItemAction:
+			if actionToPerform is AllyHealingItemAction:
+				# heal the target ally battler:
+				battler.health += actionToPerform.healthAmount
+				# Display text:
+				var text: String = battler.name_ + " recovered " + str(actionToPerform.healthAmount) + " !"
+				SignalBus.display_text.emit(text)
+				# Play SFX of target battler getting healed:
+				Audio.play_action_sound("heal")
+				# Play target battler heal animation:
+				battler.play_anim("heal")
+				# Wait until player closes text window:
+				await SignalBus.text_window_closed
+				# Wait a moment:
+				await get_tree().create_timer(0.1).timeout
 	# Clear target battlers array:
 	targetBattlers.clear()
 	# Signal to the battle node that we're done:
