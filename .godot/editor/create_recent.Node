@@ -1,4 +1,6 @@
 Label
+CenterContainer
+ColorRect
 AnimationPlayer
 Sprite2D
 Marker2D
@@ -7,8 +9,6 @@ Node
 AnimatedSprite2D
 EnemyBattler
 CanvasLayer
-ColorRect
 AudioStreamPlayer
 ProgressBar
 VBoxContainer
-Button
