@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://skjtio160esb"]
+[gd_scene load_steps=7 format=3 uid="uid://skjtio160esb"]
 
 [ext_resource type="Script" path="res://abstract_battler/battler.gd" id="1_2dchc"]
 
@@ -33,8 +33,40 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_gfgw0"]
+resource_name = "cursed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.423107, 0.00216954, 0.890315, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_clhru"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qi1g1"]
 _data = {
+"RESET": SubResource("Animation_clhru"),
+"cursed": SubResource("Animation_gfgw0"),
 "fade_out": SubResource("Animation_hyjqv"),
 "heal": SubResource("Animation_eewsq")
 }

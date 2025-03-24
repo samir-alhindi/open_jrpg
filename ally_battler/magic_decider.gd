@@ -65,6 +65,8 @@ func _input(event: InputEvent) -> void:
 				# Check the kind of magic action:
 				if action is AllyOffensiveMagicAction:
 					currentGroup = "enemies"
+				elif action is AllyCurseMagicAction:
+					currentGroup = "enemies"
 				elif action is AllyHealingMagicAction:
 					currentGroup = "allies"
 				if action.targetNum == AllyMagicAction.TargetNum.SINGLE:

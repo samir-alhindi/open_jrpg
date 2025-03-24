@@ -1,3 +1,5 @@
+DisablingStatusEffect
+AllyCurseMagicAction
 AllyHealingItemAction
 AllyAction
 EnemyAttackAction

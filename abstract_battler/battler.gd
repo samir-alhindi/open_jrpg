@@ -4,6 +4,7 @@ class_name Battler extends Node2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
 var isDefeated: bool = false
+var statusEffects: Array[StatusEffect] = []
 
 signal deciding_finished
 signal performing_action_finished
@@ -21,8 +22,9 @@ func defeated() -> void:
 	pass
 
 func play_anim(animationName: String) -> void:
-	if animationName == "heal":
-		$AnimationPlayer.play("heal")
+	var animPlayerAnims: Array[String] = ["heal", "cursed"]
+	if animationName in animPlayerAnims:
+		$AnimationPlayer.play(animationName)
 	else:
 		$AnimatedSprite2D.play(animationName)
 

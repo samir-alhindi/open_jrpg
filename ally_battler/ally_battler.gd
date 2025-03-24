@@ -46,6 +46,8 @@ var targetBattlers: Array[Battler]
 var none: int = 0
 
 func _ready() -> void:
+	# Show UI:
+	$UI.show()
 	# Show battler name:
 	$"%NameLabel".text = stats.name
 	health_bar.max_value = self.health
@@ -171,6 +173,24 @@ func perform_action() -> void:
 				Audio.play_action_sound("heal")
 				# Play target battler heal animation:
 				battler.play_anim("heal")
+				# Wait until player closes text window:
+				await SignalBus.text_window_closed
+				# Wait a moment:
+				await get_tree().create_timer(0.1).timeout
+			
+			elif actionToPerform is AllyCurseMagicAction:
+				var effect: StatusEffect = actionToPerform.statusEffect
+				# Play aniamtion:
+				play_anim("offensive_magic")
+				# heal the target ally battler:
+				battler.statusEffects.append(effect)
+				# Display text:
+				var text: String = battler.name_ + " has been inflicted with " + effect.name_ + " !"
+				SignalBus.display_text.emit(text)
+				# Play SFX of target battler getting healed:
+				Audio.play_action_sound("cursed")
+				# Play target battler curse animation:
+				battler.play_anim("cursed")
 				# Wait until player closes text window:
 				await SignalBus.text_window_closed
 				# Wait a moment:

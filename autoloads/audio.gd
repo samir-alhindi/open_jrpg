@@ -9,11 +9,11 @@ extends Node
 @onready var won: AudioStreamPlayer = $Won
 
 
-
 var sound_types: Dictionary = {
 	"hurt" : preload("res://assets/SFX/hurt.wav"),
 	"heal" : preload("res://assets/SFX/heal.ogg"),
-	"defend" : preload("res://assets/SFX/defend.wav")
+	"defend" : preload("res://assets/SFX/defend.wav"),
+	"cursed" : preload("res://assets/SFX/battler_cursed.wav"),
 }
 
 func play_action_sound(actionType: StringName) -> void:
