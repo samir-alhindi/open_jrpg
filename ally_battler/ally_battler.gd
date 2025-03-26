@@ -182,12 +182,27 @@ func perform_action() -> void:
 				var effect: StatusEffect = actionToPerform.statusEffect
 				# Play aniamtion:
 				play_anim("offensive_magic")
-				# heal the target ally battler:
-				battler.statusEffects.append(effect)
+				
+				# Disabling status effect (sleep, paralysis, ect...):
+				if effect is DisablingStatusEffect:
+					# Check if target is already inflected with a disabling status effect:
+					if battler.disablingStatusEffect != null:
+						var text: String = battler.name_ + " already can't act !"
+						SignalBus.display_text.emit(text)
+						await SignalBus.text_window_closed
+						# Wait a moment:
+						await get_tree().create_timer(0.1).timeout
+						continue
+					# Inflect the status effect:
+					battler.disablingStatusEffect = effect.duplicate()
+					battler.isDisabled = true
+					battler.status_effect_sprite.texture = effect.sprite
+					battler.status_effect_sprite.scale = Vector2(1, 1)
+					battler.status_effect_sprite.scale *= effect.scale
 				# Display text:
 				var text: String = battler.name_ + " has been inflicted with " + effect.name_ + " !"
 				SignalBus.display_text.emit(text)
-				# Play SFX of target battler getting healed:
+				# Play SFX of target battler getting cursed:
 				Audio.play_action_sound("cursed")
 				# Play target battler curse animation:
 				battler.play_anim("cursed")

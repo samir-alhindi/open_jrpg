@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" path="res://base_resource_classes/disabling_status_effect.gd" id="1_m3mjr"]
 [ext_resource type="AudioStream" uid="uid://cb0lp8wxeur0l" path="res://assets/SFX/a_status_effect.wav" id="2_n46td"]
-[ext_resource type="Texture2D" uid="uid://dp5nuh5mig3bb" path="res://assets/status_effects_sprites/Zzz.png" id="3_12blw"]
+[ext_resource type="Texture2D" uid="uid://dgbxveouplh6t" path="res://assets/sprites/status_effects_sprites/moon.png" id="3_400k4"]
 
 [resource]
 script = ExtResource("1_m3mjr")
 name_ = "Sleep"
 effectDuration = 2
 sound = ExtResource("2_n46td")
-sprite = ExtResource("3_12blw")
+sprite = ExtResource("3_400k4")
+scale = 0.05
+text = "Is fast asleep !"
+removalText = "woke up !"

@@ -1,9 +1,10 @@
-DisablingStatusEffect
 AllyCurseMagicAction
+DisablingStatusEffect
+StatusEffect
+BattleData
 AllyHealingItemAction
 AllyAction
 EnemyAttackAction
-BattleData
 AllyStats
 AllyAttackAction
 EnemyDefendAction
@@ -11,5 +12,3 @@ AllyOffensiveMagicAction
 AllyHealingMagicAction
 AllyDefendAction
 EnemyStats
-EnemyAction
-Theme

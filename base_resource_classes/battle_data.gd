@@ -5,6 +5,8 @@ class_name BattleData extends Resource
 @export var battleName: String
 ## The background.
 @export var background: Texture
+## Background scale.
+@export var scale: Vector2 = Vector2(1, 1)
 ## Background music
 @export var battleMusic: AudioStream
 

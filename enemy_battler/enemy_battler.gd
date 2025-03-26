@@ -35,8 +35,15 @@ func _ready() -> void:
 	animated_sprite_2d.sprite_frames = stats.spriteFrames
 	animated_sprite_2d.play("idle")
 
-func decide_action():
+func decide_action() -> void:
 	handle_defense()
+	# Battler can't decide since it's disabled (asleep, paralyzed, etc...).
+	if isDisabled:
+		actionToPerform = null
+		targetBattlers.clear()
+		await get_tree().create_timer(0.01).timeout
+		self.deciding_finished.emit()
+		return
 	actionToPerform = actions[random.rand_weighted(actionChances)]
 	if actionToPerform is EnemyAttackAction:
 		if actionToPerform.actionTargetType == EnemyAttackAction.ActionTargetType.SINGLE_ALLY:
@@ -50,6 +57,33 @@ func decide_action():
 
 func perform_action() -> void:
 	SignalBus.cursor_come_to_me.emit(self.global_position, false)
+	#region Status effect logic:
+	# Check if self is inflected with disabling status effect (sleep, paralysis, ect...):
+	if disablingStatusEffect != null:
+		# Decrement effect duration by 1 since 1 turn has passed:
+		disablingStatusEffect.effectDuration -= 1
+		# Check if status effect duration is over:
+		if disablingStatusEffect.effectDuration <= 0:
+			# Enable the battler again:
+			isDisabled = false
+			# Display text showing it's been removed:
+			SignalBus.display_text.emit(name_ + " " + disablingStatusEffect.removalText)
+			# Remove status effect:
+			disablingStatusEffect = null
+			status_effect_sprite.texture = null
+			# End turn:
+			await SignalBus.text_window_closed
+			performing_action_finished.emit()
+			return
+		# Display message and sound:
+		SignalBus.display_text.emit(name_ + " " + disablingStatusEffect.text)
+		Audio.status_effect.stream = disablingStatusEffect.sound
+		Audio.status_effect.play()
+		await SignalBus.text_window_closed
+		# Prevent battler from playing this turn:
+		performing_action_finished.emit()
+		return
+	#endregion
 	SignalBus.display_text.emit(name_+" "+actionToPerform.actionText)
 	#play action sound:
 	Audio.action.stream = actionToPerform.sound

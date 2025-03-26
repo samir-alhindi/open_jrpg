@@ -1,10 +1,15 @@
 class_name Battler extends Node2D
 
-
+@onready var status_effect_sprite: Sprite2D = $StatusEffectSprite
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
+# Flags:
 var isDefeated: bool = false
+var isDisabled: bool = false
+
 var statusEffects: Array[StatusEffect] = []
+# Status effect that prevents the battler from performing an action:
+var disablingStatusEffect: DisablingStatusEffect
 
 signal deciding_finished
 signal performing_action_finished
@@ -35,3 +40,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_out":
 		queue_free()
+
+func has_status_effect(effect: StatusEffect) -> bool:
+	for i: StatusEffect in statusEffects:
+		if i.name_ == effect.name_:
+			return true
+	return false

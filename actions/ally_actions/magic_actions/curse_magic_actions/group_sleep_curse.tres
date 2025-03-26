@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AllyCurseMagicAction" load_steps=4 format=3 uid="uid://chk1y7umc0j08"]
+
+[ext_resource type="Script" path="res://base_resource_classes/ally_curse_magic_action.gd" id="1_rp4dm"]
+[ext_resource type="AudioStream" uid="uid://cqj63pxedrw7g" path="res://assets/SFX/mist.wav" id="2_qinlt"]
+[ext_resource type="Resource" uid="uid://6w3g121klqe" path="res://status_effects/disabling/sleep.tres" id="2_wu8kr"]
+
+[resource]
+script = ExtResource("1_rp4dm")
+statusEffect = ExtResource("2_wu8kr")
+magicPointsCost = 15
+targetNum = 1
+actionText = "Hypnotized all the enemies !"
+actionName = "Group sleep"
+sound = ExtResource("2_qinlt")

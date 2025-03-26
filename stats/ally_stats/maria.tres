@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AllyStats" load_steps=76 format=3 uid="uid://bbwdd2xv1bf1i"]
+[gd_resource type="Resource" script_class="AllyStats" load_steps=79 format=3 uid="uid://bbwdd2xv1bf1i"]
 
 [ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="1_xwhoi"]
 [ext_resource type="Script" path="res://base_resource_classes/ally_attack_action.gd" id="1_y8gyu"]
@@ -17,11 +17,14 @@
 [ext_resource type="Texture2D" uid="uid://inhow5enm2jw" path="res://assets/sprites/maria_sprites/attack/1_atk_2.png" id="10_a1nd6"]
 [ext_resource type="Resource" uid="uid://dqwgmgogpqu8n" path="res://actions/ally_actions/magic_actions/curse_magic_actions/sleep_curse.tres" id="10_x24bn"]
 [ext_resource type="Texture2D" uid="uid://daq65inmxby7r" path="res://assets/sprites/maria_sprites/hurt/take_hit_3.png" id="11_3b3el"]
+[ext_resource type="Resource" uid="uid://chk1y7umc0j08" path="res://actions/ally_actions/magic_actions/curse_magic_actions/group_sleep_curse.tres" id="11_ka8tt"]
 [ext_resource type="Texture2D" uid="uid://cwijkrkbu5hj4" path="res://assets/sprites/maria_sprites/attack/1_atk_3.png" id="11_q45vu"]
 [ext_resource type="Texture2D" uid="uid://cw4dwrbl3qh7i" path="res://assets/sprites/maria_sprites/attack/1_atk_4.png" id="12_4u4xk"]
 [ext_resource type="Texture2D" uid="uid://cllvfrusdx2sv" path="res://assets/sprites/maria_sprites/hurt/take_hit_4.png" id="12_8nbkq"]
+[ext_resource type="Resource" uid="uid://blxf1u3j1b83p" path="res://actions/ally_actions/magic_actions/curse_magic_actions/paralysis_curse.tres" id="12_bajij"]
 [ext_resource type="Texture2D" uid="uid://dovgwpj7vuw88" path="res://assets/sprites/maria_sprites/hurt/take_hit_5.png" id="13_b1nj2"]
 [ext_resource type="Texture2D" uid="uid://bvy6d00mt4ye" path="res://assets/sprites/maria_sprites/attack/1_atk_5.png" id="13_vjgk0"]
+[ext_resource type="Resource" uid="uid://cf8ct4gc0kh8r" path="res://actions/ally_actions/magic_actions/curse_magic_actions/group_paralysis_curse.tres" id="13_xt3nj"]
 [ext_resource type="Texture2D" uid="uid://7kcq0hoqialo" path="res://assets/sprites/maria_sprites/hurt/take_hit_6.png" id="14_c1bd4"]
 [ext_resource type="Texture2D" uid="uid://cvhm2wovvtf45" path="res://assets/sprites/maria_sprites/attack/1_atk_6.png" id="14_hul62"]
 [ext_resource type="Texture2D" uid="uid://b2hmgecfn1d5c" path="res://assets/sprites/maria_sprites/hurt/take_hit_7.png" id="15_3k6na"]
@@ -343,7 +346,7 @@ texture_scale = 2.0
 can_use_magic = true
 attackActions = Array[ExtResource("1_y8gyu")]([ExtResource("2_lpi16")])
 defendAction = ExtResource("3_2t8cm")
-magicActions = Array[ExtResource("6_ds7we")]([ExtResource("8_2ah47"), ExtResource("7_nx2dx"), ExtResource("10_x24bn")])
+magicActions = Array[ExtResource("6_ds7we")]([ExtResource("8_2ah47"), ExtResource("7_nx2dx"), ExtResource("10_x24bn"), ExtResource("11_ka8tt"), ExtResource("12_bajij"), ExtResource("13_xt3nj")])
 items = Array[ExtResource("5_ggp6d")]([ExtResource("5_jaufu"), ExtResource("6_08a1k")])
 health = 100
 magicPoints = 70

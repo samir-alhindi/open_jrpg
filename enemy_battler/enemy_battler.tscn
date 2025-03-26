@@ -7,6 +7,9 @@
 script = ExtResource("2_8y5u6")
 stats = null
 
+[node name="StatusEffectSprite" parent="." index="1"]
+position = Vector2(51, 44)
+
 [node name="HealthLabel" parent="VBoxContainer" index="0"]
 visible = false
 

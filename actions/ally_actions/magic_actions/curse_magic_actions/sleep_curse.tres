@@ -10,5 +10,5 @@ statusEffect = ExtResource("2_v6prc")
 magicPointsCost = 15
 targetNum = 0
 actionText = "Released sleeping mist !"
-actionName = "Sleep mist"
+actionName = "Sleep"
 sound = ExtResource("2_jca8i")

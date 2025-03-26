@@ -30,3 +30,5 @@ stream = ExtResource("5_3kdmj")
 
 [node name="Down" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_lccs7")
+
+[node name="StatusEffect" type="AudioStreamPlayer" parent="."]

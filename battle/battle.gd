@@ -16,6 +16,7 @@ func _ready() -> void:
 	battleData = Global.battle
 	# Load assets:
 	$Background.texture = battleData.background
+	$Background.scale = battleData.scale
 	battle_music.stream = battleData.battleMusic
 	battle_music.play()
 	# Load allies:

@@ -7,6 +7,7 @@ extends Node
 @onready var lost: AudioStreamPlayer = $Lost
 @onready var down: AudioStreamPlayer = $Down
 @onready var won: AudioStreamPlayer = $Won
+@onready var status_effect: AudioStreamPlayer = $StatusEffect
 
 
 var sound_types: Dictionary = {

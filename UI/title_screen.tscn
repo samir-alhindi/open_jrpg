@@ -1,17 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://0xc8hpp1566k"]
 
 [ext_resource type="Script" path="res://UI/title_screen.gd" id="1_el03b"]
+[ext_resource type="Texture2D" uid="uid://dr5iffqjgqqms" path="res://assets/battle_backgrounds/title_screen.png" id="2_pd7j3"]
 [ext_resource type="PackedScene" uid="uid://om1j1at88sjh" path="res://UI/text_window.tscn" id="3_6g7fu"]
 [ext_resource type="AudioStream" uid="uid://c0xaxoerhvcvw" path="res://assets/music/main_menu.mp3" id="5_int3i"]
-[ext_resource type="Texture2D" uid="uid://bvjxall0uxfhd" path="res://assets/battle_backgrounds/6.png" id="6_uwqnk"]
 
 [node name="TitleScreen" type="CanvasLayer"]
 script = ExtResource("1_el03b")
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(288, 162)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("6_uwqnk")
+texture = ExtResource("2_pd7j3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = -1
