@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BattleData" load_steps=10 format=3 uid="uid://bcar7s7lyeinu"]
+[gd_resource type="Resource" script_class="BattleData" load_steps=11 format=3 uid="uid://bcar7s7lyeinu"]
 
 [ext_resource type="Script" path="res://base_resource_classes/ally_stats.gd" id="1_u4h26"]
 [ext_resource type="Resource" uid="uid://cnxgagq22hko" path="res://stats/ally_stats/samir.tres" id="2_383vu"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://d237emy0o3efv" path="res://assets/music/Battle-of-the-Ancients.mp3" id="5_5q27r"]
 [ext_resource type="Texture2D" uid="uid://dkwkhldd3os1j" path="res://assets/battle_backgrounds/forest.png" id="5_he2xn"]
 [ext_resource type="Resource" uid="uid://cc6dqtmkwgtre" path="res://stats/enemy_stats/eye.tres" id="7_slxaw"]
+[ext_resource type="Resource" uid="uid://u2ab0mjen2j5" path="res://stats/enemy_stats/dark_knight.tres" id="9_0r4nv"]
 
 [resource]
 script = ExtResource("3_malvr")
@@ -17,4 +18,4 @@ background = ExtResource("5_he2xn")
 scale = Vector2(1, 1)
 battleMusic = ExtResource("5_5q27r")
 allies = Array[ExtResource("1_u4h26")]([ExtResource("2_383vu"), ExtResource("3_pr5ei"), ExtResource("4_28yy5")])
-enemies = Array[ExtResource("2_y0nj8")]([ExtResource("7_slxaw"), ExtResource("7_slxaw"), ExtResource("7_slxaw")])
+enemies = Array[ExtResource("2_y0nj8")]([ExtResource("7_slxaw"), ExtResource("9_0r4nv"), ExtResource("7_slxaw")])

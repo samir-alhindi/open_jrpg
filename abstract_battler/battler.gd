@@ -11,6 +11,8 @@ var statusEffects: Array[StatusEffect] = []
 # Status effect that prevents the battler from performing an action:
 var disablingStatusEffect: DisablingStatusEffect
 
+var opponents: StringName
+
 signal deciding_finished
 signal performing_action_finished
 
@@ -45,4 +47,13 @@ func has_status_effect(effect: StatusEffect) -> bool:
 	for i: StatusEffect in statusEffects:
 		if i.name_ == effect.name_:
 			return true
+	return false
+
+func check_if_we_won() -> bool:
+	var is_defated: Callable = func (battler: Battler) -> bool:
+		return battler.isDefeated
+	var battlers: Array[Battler]
+	battlers.assign(get_tree().get_nodes_in_group(opponents))
+	if battlers.all(is_defated):
+		return true
 	return false

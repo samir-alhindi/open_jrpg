@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://base_resource_classes/enemy_stats.gd" id="2_ilxkb"]
 [ext_resource type="Resource" uid="uid://wb66qtwf3pgg" path="res://actions/enemy_actions/attack_actions/laser.tres" id="2_to2i3"]
 [ext_resource type="Resource" uid="uid://bg5imu1y873fj" path="res://actions/enemy_actions/attack_actions/wide_laser.tres" id="3_qb034"]
-[ext_resource type="Resource" uid="uid://lfvsqt8r3mpq" path="res://actions/enemy_actions/attack_actions/defend.tres" id="4_p014m"]
+[ext_resource type="Resource" uid="uid://lfvsqt8r3mpq" path="res://actions/enemy_actions/defend_actions/defend.tres" id="4_p014m"]
 [ext_resource type="Texture2D" uid="uid://cbhq210ltig1c" path="res://assets/sprites/eye_sprites/Eyeball.png" id="5_rlgsb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcw2g"]

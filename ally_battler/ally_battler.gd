@@ -43,7 +43,6 @@ class_name AllyBattler extends Battler
 
 var actionToPerform: AllyAction
 var targetBattlers: Array[Battler]
-var none: int = 0
 
 func _ready() -> void:
 	# Show UI:
@@ -65,6 +64,7 @@ func _ready() -> void:
 	# Load SpriteFrames:
 	animated_sprite_2d.sprite_frames = stats.spriteFrames
 	animated_sprite_2d.play("idle")
+	opponents = "enemies"
 
 func decide_action() -> void:
 	SignalBus.cursor_come_to_me.emit(self.global_position, true)
@@ -114,6 +114,10 @@ func perform_action() -> void:
 				SignalBus.display_text.emit(battler.defeatedText)
 				# Wait until player closes text window:
 				await SignalBus.text_window_closed
+				# Check if allies won:
+				if check_if_we_won() == true:
+					SignalBus.battle_won.emit()
+					return
 				#endregion
 		#region Defend action:
 		elif actionToPerform is AllyDefendAction:
@@ -158,6 +162,10 @@ func perform_action() -> void:
 					SignalBus.display_text.emit(battler.defeatedText)
 					# Wait until player closes text window:
 					await SignalBus.text_window_closed
+					# Check if allies won:
+					if check_if_we_won() == true:
+						SignalBus.battle_won.emit()
+						return
 			elif actionToPerform is AllyHealingMagicAction:
 				# Play aniamtion:
 				play_anim("heal_magic")

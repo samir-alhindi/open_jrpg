@@ -7,7 +7,6 @@ var actionChances: Array = []
 var random: RandomNumberGenerator
 var actionToPerform: EnemyAction
 var targetBattlers: Array[Battler]
-var none: int = 0
 
 # Defending stuff:
 var isDefending: bool = false
@@ -34,6 +33,7 @@ func _ready() -> void:
 	# Load SpriteFrames:
 	animated_sprite_2d.sprite_frames = stats.spriteFrames
 	animated_sprite_2d.play("idle")
+	opponents = "allies"
 
 func decide_action() -> void:
 	handle_defense()
@@ -133,6 +133,10 @@ func perform_action() -> void:
 				SignalBus.display_text.emit(battler.defeatedText)
 				# Wait until player closes text window:
 				await SignalBus.text_window_closed
+				# Check if enemies have won:
+				if check_if_we_won() == true:
+					SignalBus.battle_lost.emit()
+					return
 				#endregion
 		#region Defend action:
 		elif actionToPerform is EnemyDefendAction:
@@ -157,8 +161,6 @@ func perform_action() -> void:
 			# Wait a moment:
 			await get_tree().create_timer(0.1).timeout
 			#endregion
-		#elif actionToPerform is EnemyMagicAction:
-		#	pass
 	# Clear target battlers array:
 	targetBattlers.clear()
 	# Signal to the battle node that we're done:

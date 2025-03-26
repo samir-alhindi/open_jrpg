@@ -1,12 +1,15 @@
-res://battle
-res://actions/ally_actions/magic_actions/curse_magic_actions
+res://assets/sprites/dark_knight
+res://actions/enemy_actions/attack_actions
+res://stats/enemy_stats
 res://enemy_battler
+res://battle
+res://ally_battler
+C:/Users/Samir/Desktop/game_1.6.0
+res://actions/ally_actions/magic_actions/curse_magic_actions
 res://abstract_battler
 res://status_effects/disabling
 res://battle_data
 res://autoloads
-res://ally_battler
-C:/Users/Samir/Desktop/open_jrpg_1.5.0
 res://actions/ally_actions/item_actions/healing_actions
 res://UI
 res://assets/sprites/samir_sprites/attack
@@ -17,5 +20,3 @@ res://assets/sprites/rayyan_sprites/attack
 res://assets/sprites/maria_sprites/dead
 res://assets/sprites/samir_sprites/dead
 res://assets/sprites/rayyan_sprites/dead
-res://assets/sprites/rayyan_sprites/take_hit
-res://assets/sprites/rayyan_sprites/defend

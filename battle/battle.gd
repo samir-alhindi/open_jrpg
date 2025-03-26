@@ -25,6 +25,8 @@ func _ready() -> void:
 	load_battlers(battleData.enemies, ENEMY_BATTLER, $EnemySpawnCircle)
 	SignalBus.display_text.connect(display_text)
 	SignalBus.cursor_come_to_me.connect(on_cursor_come_to_me)
+	SignalBus.battle_won.connect(on_battle_won)
+	SignalBus.battle_lost.connect(on_battle_lost)
 	ScreenFade.fade_into_game()
 	rename_enemies()
 	let_battlers_decide_actions()
@@ -98,9 +100,7 @@ func let_battlers_perform_action() -> void:
 		battler.set_process(false)
 	free_defeated_battlers()
 	await get_tree().create_timer(0.01).timeout # Wait till all are freed.
-	if check_if_allies_won(): battle_won()
-	elif check_if_enemies_won():battle_lost()
-	else: let_battlers_decide_actions()
+	let_battlers_decide_actions()
 
 func free_defeated_battlers() -> void:
 	for battler: Battler in battlers:
@@ -129,17 +129,7 @@ func on_cursor_come_to_me(my_position: Vector2, is_ally: bool) -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property($Cursor, "global_position", finalValue, 0.1)
 
-func check_if_allies_won() -> bool:
-	if get_tree().get_nodes_in_group("enemies").size() <= 0:
-		return true
-	return false
-
-func check_if_enemies_won() -> bool:
-	if get_tree().get_nodes_in_group("allies").size() <= 0:
-		return true
-	return false
-
-func battle_won() -> void:
+func on_battle_won() -> void:
 	$Cursor/AnimationPlayer.play("fade")
 	SignalBus.display_text.emit("Battle won !")
 	battle_music.playing = false
@@ -149,7 +139,7 @@ func battle_won() -> void:
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("uid://0xc8hpp1566k")
 
-func battle_lost() -> void:
+func on_battle_lost() -> void:
 	$Cursor/AnimationPlayer.play("fade")
 	SignalBus.display_text.emit("Battle lost...")
 	Audio.lost.play()

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyAttackAction" load_steps=3 format=3 uid="uid://c0evk445emvmi"]
+
+[ext_resource type="Script" path="res://base_resource_classes/enemy_attack_action.gd" id="1_2u1ck"]
+[ext_resource type="AudioStream" uid="uid://cx6uft3g6lvf2" path="res://assets/SFX/slash.wav" id="2_ueokx"]
+
+[resource]
+script = ExtResource("1_2u1ck")
+actionTargetType = 0
+damageAmount = 50
+enemyActionChance = 0.75
+actionText = "Swung his blade !"
+sound = ExtResource("2_ueokx")
