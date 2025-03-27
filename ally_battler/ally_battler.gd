@@ -39,7 +39,7 @@ class_name AllyBattler extends Battler
 @onready var attackActions: Array[AllyAttackAction] = stats.attackActions
 @onready var defendAction: AllyDefendAction = stats.defendAction
 @onready var magicActions: Array[AllyMagicAction] = stats.magicActions
-@onready var items: Array[AllyItemAction] = stats.items
+@onready var items: Array[AllyItemAction] = stats.items.duplicate()
 
 var actionToPerform: AllyAction
 var targetBattlers: Array[Battler]
@@ -85,13 +85,31 @@ func perform_action() -> void:
 	Audio.action.stream = actionToPerform.sound
 	Audio.action.play()
 	await SignalBus.text_window_closed
+	#region Dead battlers:
 	for battler: Battler in targetBattlers:
-		##Check if we're targeting a dead battler:
+		# Check if we're targeting a dead battler:
 		if battler.isDefeated:
-			SignalBus.display_text.emit(battler.name_+" has already been defeated !")
-			await SignalBus.text_window_closed
-			await get_tree().create_timer(0.1).timeout
-			continue
+			# Change the battler to another battler if the current one is dead:
+			var targetGroup: String
+			if battler is EnemyBattler:
+				targetGroup = "enemies"
+			elif battler is AllyBattler:
+				targetGroup = "allies"
+			# Change target to another battler:
+			if targetBattlers.size() == 1:
+				var battlers: Array[Battler]
+				battlers.assign(get_tree().get_nodes_in_group(targetGroup))
+				var index: int = battlers.find(battler)
+				index += 1
+				index %= battlers.size()
+				while battlers[index].isDefeated:
+					index += 1
+					index %= battlers.size()
+				battler = battlers[index]
+			# Ignore the dead battlers in group actions:
+			elif targetBattlers.size() > 1:
+				continue
+	#endregion
 		# check action type:
 		#region Attack action:
 		if actionToPerform is AllyAttackAction:
