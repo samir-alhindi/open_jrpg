@@ -1,0 +1,245 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=55 format=3 uid="uid://u2ab0mjen2j5"]
+
+[ext_resource type="Script" path="res://assets/base_resource_classes/enemy_action.gd" id="1_0f6l8"]
+[ext_resource type="Resource" uid="uid://lfvsqt8r3mpq" path="res://actions/enemy_actions/defend_actions/defend.tres" id="2_pxm65"]
+[ext_resource type="Resource" uid="uid://c0evk445emvmi" path="res://actions/enemy_actions/attack_actions/slash.tres" id="3_wxsbr"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/enemy_stats.gd" id="4_4im50"]
+[ext_resource type="Texture2D" uid="uid://xa5ibyj82qwt" path="res://assets/sprites/wind_knights_sprites/idle/idle_1.png" id="5_6fd4g"]
+[ext_resource type="Texture2D" uid="uid://c78idq2gxbmnu" path="res://assets/sprites/wind_knights_sprites/1_atk/1_atk_1.png" id="5_44a0l"]
+[ext_resource type="Texture2D" uid="uid://dfkowue6ynvq" path="res://assets/sprites/wind_knights_sprites/1_atk/1_atk_2.png" id="6_isnlp"]
+[ext_resource type="Texture2D" uid="uid://cyihh8tyrdq8k" path="res://assets/sprites/wind_knights_sprites/idle/idle_2.png" id="6_lmrs2"]
+[ext_resource type="Texture2D" uid="uid://h3n2kkv3o5g7" path="res://assets/sprites/wind_knights_sprites/1_atk/1_atk_3.png" id="7_qi73u"]
+[ext_resource type="Texture2D" uid="uid://3dp7sj4v24gy" path="res://assets/sprites/wind_knights_sprites/idle/idle_3.png" id="7_sh3dv"]
+[ext_resource type="Texture2D" uid="uid://2jejfhd353tu" path="res://assets/sprites/wind_knights_sprites/1_atk/1_atk_4.png" id="8_1c3pk"]
+[ext_resource type="Texture2D" uid="uid://y351buln2ex" path="res://assets/sprites/wind_knights_sprites/idle/idle_4.png" id="8_2si08"]
+[ext_resource type="Texture2D" uid="uid://ddhhtumac66qc" path="res://assets/sprites/wind_knights_sprites/idle/idle_5.png" id="9_35fsq"]
+[ext_resource type="Texture2D" uid="uid://drsfr2042788k" path="res://assets/sprites/wind_knights_sprites/1_atk/1_atk_5.png" id="9_gyffe"]
+[ext_resource type="Texture2D" uid="uid://1tnaqyav5ufn" path="res://assets/sprites/wind_knights_sprites/idle/idle_6.png" id="10_0tbyd"]
+[ext_resource type="Texture2D" uid="uid://pug5qlfmq5mh" path="res://assets/sprites/wind_knights_sprites/1_atk/1_atk_6.png" id="10_1uvv2"]
+[ext_resource type="Texture2D" uid="uid://ba74yo7gxww0n" path="res://assets/sprites/wind_knights_sprites/idle/idle_7.png" id="11_mhkal"]
+[ext_resource type="Texture2D" uid="uid://ckxarb28154mj" path="res://assets/sprites/wind_knights_sprites/1_atk/1_atk_7.png" id="11_xqojt"]
+[ext_resource type="Texture2D" uid="uid://ba43tii2mjy4n" path="res://assets/sprites/wind_knights_sprites/idle/idle_8.png" id="12_2ufcw"]
+[ext_resource type="Texture2D" uid="uid://71nwvuxvj4gq" path="res://assets/sprites/wind_knights_sprites/1_atk/1_atk_8.png" id="12_xv3yc"]
+[ext_resource type="Texture2D" uid="uid://8mae66y8rk7k" path="res://assets/sprites/wind_knights_sprites/death/death_1.png" id="13_ma588"]
+[ext_resource type="Texture2D" uid="uid://bsdcfqcnh6t7y" path="res://assets/sprites/wind_knights_sprites/death/death_2.png" id="14_0ra0o"]
+[ext_resource type="Texture2D" uid="uid://dif1y78wjxygt" path="res://assets/sprites/wind_knights_sprites/death/death_3.png" id="15_svd7s"]
+[ext_resource type="Texture2D" uid="uid://byhojpw75v1ng" path="res://assets/sprites/wind_knights_sprites/death/death_4.png" id="16_k5srf"]
+[ext_resource type="Texture2D" uid="uid://ctbicrwr51l47" path="res://assets/sprites/wind_knights_sprites/death/death_5.png" id="17_ndbv1"]
+[ext_resource type="Texture2D" uid="uid://fb8xyklxgjx1" path="res://assets/sprites/wind_knights_sprites/death/death_6.png" id="18_6avry"]
+[ext_resource type="Texture2D" uid="uid://saxko6kifwf1" path="res://assets/sprites/wind_knights_sprites/death/death_7.png" id="19_icx0a"]
+[ext_resource type="Texture2D" uid="uid://caxl3kuumhwci" path="res://assets/sprites/wind_knights_sprites/death/death_8.png" id="20_s4bl2"]
+[ext_resource type="Texture2D" uid="uid://ty6q75cllj0k" path="res://assets/sprites/wind_knights_sprites/death/death_9.png" id="21_bdyv5"]
+[ext_resource type="Texture2D" uid="uid://bwwna18jbb84k" path="res://assets/sprites/wind_knights_sprites/death/death_10.png" id="22_ipc51"]
+[ext_resource type="Texture2D" uid="uid://dqkxa7drk4gml" path="res://assets/sprites/wind_knights_sprites/death/death_11.png" id="23_40ykb"]
+[ext_resource type="Texture2D" uid="uid://ifuh5887yw1q" path="res://assets/sprites/wind_knights_sprites/death/death_12.png" id="24_fdnf7"]
+[ext_resource type="Texture2D" uid="uid://fiilqli41pmv" path="res://assets/sprites/wind_knights_sprites/death/death_13.png" id="25_64un0"]
+[ext_resource type="Texture2D" uid="uid://c6b6oxtnt0skk" path="res://assets/sprites/wind_knights_sprites/death/death_14.png" id="26_j6d7n"]
+[ext_resource type="Texture2D" uid="uid://dtbm2u73rrxo1" path="res://assets/sprites/wind_knights_sprites/death/death_15.png" id="27_fk8hd"]
+[ext_resource type="Texture2D" uid="uid://c4jhk6qw0dugg" path="res://assets/sprites/wind_knights_sprites/death/death_16.png" id="28_55xje"]
+[ext_resource type="Texture2D" uid="uid://d1e7tospdi1rj" path="res://assets/sprites/wind_knights_sprites/death/death_17.png" id="29_reus8"]
+[ext_resource type="Texture2D" uid="uid://ccru1u3lb7kbn" path="res://assets/sprites/wind_knights_sprites/death/death_18.png" id="30_b13fq"]
+[ext_resource type="Texture2D" uid="uid://lgsx4by2g3cq" path="res://assets/sprites/wind_knights_sprites/death/death_19.png" id="31_ge24a"]
+[ext_resource type="Texture2D" uid="uid://dsg6tmnp5e3wg" path="res://assets/sprites/wind_knights_sprites/defend/defend_1.png" id="32_xyeg5"]
+[ext_resource type="Texture2D" uid="uid://di0h1twukag1s" path="res://assets/sprites/wind_knights_sprites/defend/defend_2.png" id="33_qerhl"]
+[ext_resource type="Texture2D" uid="uid://c2sl3he2y3pn" path="res://assets/sprites/wind_knights_sprites/defend/defend_3.png" id="34_c0xf8"]
+[ext_resource type="Texture2D" uid="uid://yuyops13rtlc" path="res://assets/sprites/wind_knights_sprites/defend/defend_4.png" id="35_gy6i6"]
+[ext_resource type="Texture2D" uid="uid://brrq00qjbjxug" path="res://assets/sprites/wind_knights_sprites/defend/defend_5.png" id="36_3lmga"]
+[ext_resource type="Texture2D" uid="uid://cnyhlghxr7rdo" path="res://assets/sprites/wind_knights_sprites/defend/defend_6.png" id="37_1ma7g"]
+[ext_resource type="Texture2D" uid="uid://b5nwu18tbhtxp" path="res://assets/sprites/wind_knights_sprites/defend/defend_7.png" id="38_ixfch"]
+[ext_resource type="Texture2D" uid="uid://dohj6hs1q1xbn" path="res://assets/sprites/wind_knights_sprites/defend/defend_8.png" id="39_812xg"]
+[ext_resource type="Texture2D" uid="uid://d2kaf3jqtktry" path="res://assets/sprites/wind_knights_sprites/take_hit/take_hit_1.png" id="40_m23mn"]
+[ext_resource type="Texture2D" uid="uid://crknwjqp1a8l1" path="res://assets/sprites/wind_knights_sprites/take_hit/take_hit_2.png" id="41_i1gaa"]
+[ext_resource type="Texture2D" uid="uid://bjn1cibuvpny0" path="res://assets/sprites/wind_knights_sprites/take_hit/take_hit_3.png" id="42_8osj1"]
+[ext_resource type="Texture2D" uid="uid://jxicmdakyu5m" path="res://assets/sprites/wind_knights_sprites/take_hit/take_hit_4.png" id="43_qed8u"]
+[ext_resource type="Texture2D" uid="uid://dkpl8nwn71myd" path="res://assets/sprites/wind_knights_sprites/take_hit/take_hit_5.png" id="44_1x6f6"]
+[ext_resource type="Texture2D" uid="uid://cev0aci8x8o4s" path="res://assets/sprites/wind_knights_sprites/take_hit/take_hit_6.png" id="45_bt8af"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fq7r7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_44a0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_isnlp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qi73u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1c3pk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gyffe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1uvv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xqojt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xv3yc")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ma588")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0ra0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_svd7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_k5srf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ndbv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_6avry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_icx0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_s4bl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_bdyv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ipc51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_40ykb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_fdnf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_64un0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_j6d7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_fk8hd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_55xje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_reus8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_b13fq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ge24a")
+}],
+"loop": false,
+"name": &"defeated",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_xyeg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_qerhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_c0xf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_gy6i6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_3lmga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_1ma7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_ixfch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_812xg")
+}],
+"loop": false,
+"name": &"defend",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_m23mn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_i1gaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_8osj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_qed8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_1x6f6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_bt8af")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6fd4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lmrs2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sh3dv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2si08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_35fsq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0tbyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mhkal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2ufcw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[resource]
+script = ExtResource("4_4im50")
+name_ = "Wind knight"
+texture_scale = 2.0
+offset = Vector2(-8, -48)
+actions = Array[ExtResource("1_0f6l8")]([ExtResource("3_wxsbr"), ExtResource("2_pxm65")])
+health = 500
+strength = 20
+defense = 20
+magicStrength = 30
+speed = 35
+defeatedText = "faded into the wind !"
+createTemplate = false
+spriteFrames = SubResource("SpriteFrames_fq7r7")

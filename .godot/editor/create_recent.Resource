@@ -1,8 +1,8 @@
+BattleData
 EnemyStats
 AllyCurseMagicAction
 DisablingStatusEffect
 StatusEffect
-BattleData
 AllyHealingItemAction
 AllyAction
 EnemyAttackAction

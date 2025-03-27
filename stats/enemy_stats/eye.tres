@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyStats" load_steps=28 format=3 uid="uid://cc6dqtmkwgtre"]
 
-[ext_resource type="Script" path="res://base_resource_classes/enemy_action.gd" id="1_2t8ik"]
-[ext_resource type="Script" path="res://base_resource_classes/enemy_stats.gd" id="2_ilxkb"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/enemy_action.gd" id="1_2t8ik"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/enemy_stats.gd" id="2_ilxkb"]
 [ext_resource type="Resource" uid="uid://wb66qtwf3pgg" path="res://actions/enemy_actions/attack_actions/laser.tres" id="2_to2i3"]
 [ext_resource type="Resource" uid="uid://bg5imu1y873fj" path="res://actions/enemy_actions/attack_actions/wide_laser.tres" id="3_qb034"]
 [ext_resource type="Resource" uid="uid://lfvsqt8r3mpq" path="res://actions/enemy_actions/defend_actions/defend.tres" id="4_p014m"]
@@ -179,6 +179,7 @@ animations = [{
 script = ExtResource("2_ilxkb")
 name_ = "Eye"
 texture_scale = 2.0
+offset = Vector2(0, 0)
 actions = Array[ExtResource("1_2t8ik")]([ExtResource("2_to2i3"), ExtResource("3_qb034"), ExtResource("4_p014m")])
 health = 400
 strength = 10

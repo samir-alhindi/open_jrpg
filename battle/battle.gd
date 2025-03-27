@@ -17,6 +17,8 @@ func _ready() -> void:
 	# Load assets:
 	$Background.texture = battleData.background
 	$Background.scale = battleData.scale
+	RenderingServer.set_default_clear_color(Color.BLACK)
+	$Background.modulate.a = battleData.opacity
 	battle_music.stream = battleData.battleMusic
 	battle_music.play()
 	# Load allies:
@@ -40,7 +42,8 @@ func rename_enemies() -> void:
 		if enemy.name_ in names:
 			# It's repeated: Add a number to it's name
 			enemy.name_ += " " + str(names[enemy.name_] + 1)
-			var formated: String = enemy.name_.get_slice(" ", 0)
+			var temp: String = enemy.name_
+			var formated: String = temp.erase(len(temp) - 2, 2)
 			# Increase the count of this repeated enemy
 			names[formated] += 1
 			# Special case where we rename the 1st duplicated enemy:

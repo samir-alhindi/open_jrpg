@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BattleData" load_steps=10 format=3 uid="uid://cewt5uecswbif"]
+
+[ext_resource type="Script" path="res://assets/base_resource_classes/ally_stats.gd" id="1_mk08n"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/enemy_stats.gd" id="2_1qibq"]
+[ext_resource type="Resource" uid="uid://cnxgagq22hko" path="res://stats/ally_stats/samir.tres" id="2_doobh"]
+[ext_resource type="Resource" uid="uid://bbwdd2xv1bf1i" path="res://stats/ally_stats/maria.tres" id="3_8da4v"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/battle_data.gd" id="3_f463m"]
+[ext_resource type="Resource" uid="uid://cghwgxhnra2og" path="res://stats/ally_stats/rayyan.tres" id="4_7pqvc"]
+[ext_resource type="Texture2D" uid="uid://bwwsibrs2oxmw" path="res://assets/battle_backgrounds/dungeon.png" id="5_6t4hp"]
+[ext_resource type="AudioStream" uid="uid://d237emy0o3efv" path="res://assets/music/Battle-of-the-Ancients.mp3" id="6_ly2m8"]
+[ext_resource type="Resource" uid="uid://u2ab0mjen2j5" path="res://stats/enemy_stats/wind_knight.tres" id="8_viiaf"]
+
+[resource]
+script = ExtResource("3_f463m")
+battleName = "Dungeon battle"
+background = ExtResource("5_6t4hp")
+scale = Vector2(1.3, 1.5)
+opacity = 0.5
+battleMusic = ExtResource("6_ly2m8")
+allies = Array[ExtResource("1_mk08n")]([ExtResource("2_doobh"), ExtResource("3_8da4v"), ExtResource("4_7pqvc")])
+enemies = Array[ExtResource("2_1qibq")]([ExtResource("8_viiaf"), ExtResource("8_viiaf")])

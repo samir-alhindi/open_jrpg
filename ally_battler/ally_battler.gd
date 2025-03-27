@@ -64,6 +64,8 @@ func _ready() -> void:
 	# Load SpriteFrames:
 	animated_sprite_2d.sprite_frames = stats.spriteFrames
 	animated_sprite_2d.play("idle")
+	animated_sprite_2d.offset += stats.offset
+	#init other stuff:
 	opponents = "enemies"
 
 func decide_action() -> void:

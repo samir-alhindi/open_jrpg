@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AllyAttackAction" load_steps=3 format=3 uid="uid://bkcgk6msg3fbg"]
 
-[ext_resource type="Script" path="res://base_resource_classes/ally_attack_action.gd" id="1_6xhwm"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/ally_attack_action.gd" id="1_6xhwm"]
 [ext_resource type="AudioStream" uid="uid://dtey4vsl63u2" path="res://assets/SFX/arrow_2.wav" id="2_e76mr"]
 
 [resource]
