@@ -1,4 +1,4 @@
-class_name EnemyAttackAction extends EnemyAction
+class_name EnemyAttack extends EnemyAction
 
 enum ActionTargetType {
 	SINGLE_ALLY, ## This action targets 1 singular ally battler in this battle.

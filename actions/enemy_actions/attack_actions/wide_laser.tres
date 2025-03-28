@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyAttackAction" load_steps=3 format=3 uid="uid://bg5imu1y873fj"]
 
-[ext_resource type="Script" path="res://assets/base_resource_classes/enemy_attack_action.gd" id="1_jwwjm"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/enemy_attack.gd" id="1_jwwjm"]
 [ext_resource type="AudioStream" uid="uid://dd877g5s2mad5" path="res://assets/SFX/laser_2.wav" id="2_j5noe"]
 
 [resource]

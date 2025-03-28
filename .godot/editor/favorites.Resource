@@ -1,0 +1,11 @@
+BattleData
+AllyStats
+Attack
+Defend
+OffensiveSpell
+HealingSpell
+CurseSpell
+Item
+EnemyStats
+EnemyAttack
+EnemyDefend

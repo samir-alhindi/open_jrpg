@@ -1,4 +1,6 @@
-class_name AllyItemAction extends AllyAction
+## Class for ally healing items.
+
+class_name Item extends AllyAction
 
 @export_category("Item data")
 enum ActionTargetType {
@@ -7,3 +9,5 @@ enum ActionTargetType {
 	}
 ## The number of allies this item can be used on.
 @export var actionTargetType: ActionTargetType = ActionTargetType.SINGLE_ALLY
+## How much health this item will recover.
+@export_range(0, 9999999, 5) var healthAmount: int = 50

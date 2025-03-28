@@ -1,3 +1,7 @@
+## Class for status effects that disable enemies from performing any actions.
+##
+## A status effect disables an enemy for a set amount of turns and then gets cured automatically.
+
 class_name StatusEffect extends Resource
 
 @export_category("Main data")
@@ -19,4 +23,4 @@ class_name StatusEffect extends Resource
 ## Text to display when status effect takes places:
 @export var text: String = "Is under a status effect !"
 ## Text to display when status effect is removed:
-@export var removalText: String = "woke up !"
+@export var removalText: String = "The status effect disappeared !"

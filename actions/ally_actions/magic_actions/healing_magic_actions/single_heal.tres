@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AllyHealingMagicAction" load_steps=3 format=3 uid="uid://qs2uxjyytj0e"]
 
-[ext_resource type="Script" path="res://assets/base_resource_classes/ally_healing_magic_action.gd" id="1_38onw"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/healing_spell.gd" id="1_38onw"]
 [ext_resource type="AudioStream" uid="uid://nhq76j32ki1" path="res://assets/SFX/healing_water.wav" id="2_rlp1d"]
 
 [resource]

@@ -63,8 +63,8 @@ func _input(event: InputEvent) -> void:
 				parent.actionToPerform = parent.items[itemIndex]
 				currentSelectionType = SELECTING_ALLY
 				match parent.items[itemIndex].actionTargetType:
-					AllyItemAction.ActionTargetType.ALL_ALLIES: select_all_allies_and_finish()
-					AllyItemAction.ActionTargetType.SINGLE_ALLY: start_selecting_single_ally()
+					Item.ActionTargetType.ALL_ALLIES: select_all_allies_and_finish()
+					Item.ActionTargetType.SINGLE_ALLY: start_selecting_single_ally()
 			SELECTING_ALLY:
 				finish_selecting()
 	if event.is_action_pressed("ui_cancel") and isSelecting:

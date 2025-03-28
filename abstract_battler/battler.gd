@@ -7,9 +7,8 @@ class_name Battler extends Node2D
 var isDefeated: bool = false
 var isDisabled: bool = false
 
-var statusEffects: Array[StatusEffect] = []
 # Status effect that prevents the battler from performing an action:
-var disablingStatusEffect: DisablingStatusEffect
+var disablingStatusEffect: StatusEffect
 
 var opponents: StringName
 
@@ -42,12 +41,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_out":
 		queue_free()
-
-func has_status_effect(effect: StatusEffect) -> bool:
-	for i: StatusEffect in statusEffects:
-		if i.name_ == effect.name_:
-			return true
-	return false
 
 func check_if_we_won() -> bool:
 	var is_defated: Callable = func (battler: Battler) -> bool:

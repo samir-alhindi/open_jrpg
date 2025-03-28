@@ -59,19 +59,19 @@ func _input(event: InputEvent) -> void:
 		match currentSelectionType:
 			SELECTING_ACTION:
 				if !has_enough_magic_points(): not_enough_magic_points(); return
-				var action: AllyMagicAction = parent.magicActions[actionIndex]
+				var action: Spell = parent.magicActions[actionIndex]
 				parent.actionToPerform = action
 				currentSelectionType = SELECTING_BATTLER
 				# Check the kind of magic action:
-				if action is AllyOffensiveMagicAction:
+				if action is OffensiveSpell:
 					currentGroup = "enemies"
-				elif action is AllyCurseMagicAction:
+				elif action is CurseSpell:
 					currentGroup = "enemies"
-				elif action is AllyHealingMagicAction:
+				elif action is HealingSpell:
 					currentGroup = "allies"
-				if action.targetNum == AllyMagicAction.TargetNum.SINGLE:
+				if action.targetNum == Spell.TargetNum.SINGLE:
 					start_selecting_single_battler()
-				elif action.targetNum == AllyMagicAction.TargetNum.ALL:
+				elif action.targetNum == Spell.TargetNum.ALL:
 					select_all_battlers_and_finish()
 			SELECTING_BATTLER:
 				finish_selecting()

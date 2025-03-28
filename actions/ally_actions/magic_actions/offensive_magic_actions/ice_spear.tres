@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AllyOffensiveMagicAction" load_steps=3 format=3 uid="uid://c0jkw1rnk40nw"]
 
-[ext_resource type="Script" path="res://assets/base_resource_classes/ally_offensive_magic_action.gd" id="1_uigot"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/offensive_spell.gd" id="1_uigot"]
 [ext_resource type="AudioStream" uid="uid://ccj1qdoqvyurq" path="res://assets/SFX/ice.wav" id="2_gwpu2"]
 
 [resource]

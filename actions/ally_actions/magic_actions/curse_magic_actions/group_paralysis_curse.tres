@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AllyCurseMagicAction" load_steps=4 format=3 uid="uid://cf8ct4gc0kh8r"]
 
-[ext_resource type="Script" path="res://assets/base_resource_classes/ally_curse_magic_action.gd" id="1_wso1y"]
-[ext_resource type="Resource" uid="uid://btmxm3cp1ydri" path="res://status_effects/disabling/paralysis.tres" id="2_8o1b7"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/curse_spell.gd" id="1_wso1y"]
+[ext_resource type="Resource" uid="uid://btmxm3cp1ydri" path="res://status_effects/paralysis.tres" id="2_8o1b7"]
 [ext_resource type="AudioStream" uid="uid://btucj5dvrgfn7" path="res://assets/SFX/paralysis.wav" id="2_yfuk6"]
 
 [resource]

@@ -13,13 +13,13 @@ class_name AllyStats extends Resource
 
 @export_category("Actions")
 ## The attacks that the battler can perform.
-@export var attackActions: Array[AllyAttackAction]
+@export var attackActions: Array[Attack]
 ## The battler's defend action.
-@export var defendAction: AllyDefendAction = load("uid://dtv4tf41ul5p")
+@export var defendAction: Defend = load("uid://dtv4tf41ul5p")
 ## The magic actions of the batller.
-@export var magicActions: Array[AllyMagicAction]
+@export var magicActions: Array[Spell]
 ## The items in the battler's inventory.
-@export var items: Array[AllyItemAction]
+@export var items: Array[Item]
 
 @export_category("Numbers")
 ## Battler is defeated when it reaches zero.

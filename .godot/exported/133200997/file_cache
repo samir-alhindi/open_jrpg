@@ -1,4 +1,4 @@
-res://ally_battler/ally_battler.tscn::230a5a18b3b947f6713ebe1a9d4c4e20::1743010944::res://.godot/exported/133200997/export-08b547ae2de96df1096bf8e412f09e3d-ally_battler.scn
+res://ally_battler/ally_battler.tscn::230a5a18b3b947f6713ebe1a9d4c4e20::1743072688::res://.godot/exported/133200997/export-08b547ae2de96df1096bf8e412f09e3d-ally_battler.scn
 res://battle/battle.tscn::4a8688a356c8bad011f039545508f249::1743022078::res://.godot/exported/133200997/export-48a0bed5f71b216925c4f3fa91ede4e7-battle.scn
 res://enemy_battler/enemy_battler.tscn::4b37d133c3366e674703a63bf090285c::1743019993::res://.godot/exported/133200997/export-a7bfaee3a31f4689523a76c1f967615e-enemy_battler.scn
 res://UI/text_window.tscn::4e160ddb2d91b9484a5f88612e88814d::1742208973::res://.godot/exported/133200997/export-0608dca1403ba021d49548ab893f08a6-text_window.scn
@@ -23,7 +23,7 @@ res://actions/enemy_actions/attack_actions/debug.tres::abef6cfa92271d73a4b13ffdb
 res://stats/ally_stats/maria.tres::a875bcf8057545398af69ceef7ddc7a0::1743020950::res://.godot/exported/133200997/export-cd4b708397d05dc1658d3d20df664f37-maria.res
 res://stats/ally_stats/rayyan.tres::00214902d096dc9c7ccccdbebfb5412b::1743020950::res://.godot/exported/133200997/export-8914e308b0b7ab3071297abcaa0fe26b-rayyan.res
 res://stats/ally_stats/samir.tres::60aaa62788614c9aa74c33dc5698645f::1743020950::res://.godot/exported/133200997/export-4159ef29cdc691b02eddb313fac7a100-samir.res
-res://stats/enemy_stats/eye.tres::a12239d7317cb24935a94db3ceee48b3::1743020950::res://.godot/exported/133200997/export-3e1d26592e59ee8430f44ab451afaf5c-eye.res
+res://stats/enemy_stats/eye.tres::a12239d7317cb24935a94db3ceee48b3::1743072212::res://.godot/exported/133200997/export-3e1d26592e59ee8430f44ab451afaf5c-eye.res
 res://UI/intro_screen.tscn::70e2ee539bb2cf79877a3a86c9e7458d::1743070212::res://.godot/exported/133200997/export-af99cc6366646a7e98e835ae3c78efa1-intro_screen.scn
 res://actions/ally_actions/item_actions/healing_actions/golden_apple.tres::57772273ac5a8d6bca1b36daf3107669::1743020102::res://.godot/exported/133200997/export-accda3b951631b42c25373efa632e80e-golden_apple.res
 res://actions/ally_actions/item_actions/healing_actions/fairy_in_bottle.tres::ce0c9baf799c381cd0c669196017e59b::1743020102::res://.godot/exported/133200997/export-13f8fa60b951d9d2d898e79cc82fa8ea-fairy_in_bottle.res
@@ -36,7 +36,7 @@ res://status_effects/disabling/sleep.tres::42bceec74d676f856b5c1c7dec913cb2::174
 res://UI/title_screen.tscn::17f4ddc87dff7d3e2315d4ab336cc492::1742996873::res://.godot/exported/133200997/export-f1d0b937bba34ac52fc8167d7661a515-title_screen.scn
 res://actions/enemy_actions/attack_actions/arrow.tres::7d06e873af89d605f00115a1d0a4ae42::1743020102::res://.godot/exported/133200997/export-89d8bcf5d85f2afe12bad976b42905a2-arrow.res
 res://actions/enemy_actions/attack_actions/slash.tres::12784b92657a1ccc6ee8bed759ed4c25::1743020459::res://.godot/exported/133200997/export-090cb3b6164b38f3347b4d0adeed380e-slash.res
-res://actions/enemy_actions/defend_actions/defend.tres::47610a25b40f3847068d28b86e885587::1743020102::res://.godot/exported/133200997/export-47ef3ed057dd1c6609e1e4426dae4874-defend.res
+res://actions/enemy_actions/defend_actions/defend.tres::2980b6b3f8e1f85df0e66e5124e2e91b::1743072279::res://.godot/exported/133200997/export-47ef3ed057dd1c6609e1e4426dae4874-defend.res
 res://battle_data/dungeon.tres::fed511569efa355147516508f1083ac9::1743021884::res://.godot/exported/133200997/export-f0a284bbea0a054348b085969c2ce35f-dungeon.res
 res://battle_data/forest.tres::6b80cc809a25100df47806e70af5ca90::1743020959::res://.godot/exported/133200997/export-9462b718c50ffaa9f004283e13c2c21e-forest.res
-res://stats/enemy_stats/wind_knight.tres::ee262afb2088b8375f0df2270ff91304::1743021504::res://.godot/exported/133200997/export-eeb3eb04d70c4ef9169a69f37079fa0a-wind_knight.res
+res://stats/enemy_stats/wind_knight.tres::ee262afb2088b8375f0df2270ff91304::1743072688::res://.godot/exported/133200997/export-eeb3eb04d70c4ef9169a69f37079fa0a-wind_knight.res

@@ -1,14 +1,6 @@
+Spell
+AllyAction
 BattleData
 EnemyStats
-AllyCurseMagicAction
-DisablingStatusEffect
 StatusEffect
-AllyHealingItemAction
-AllyAction
-EnemyAttackAction
 AllyStats
-AllyAttackAction
-EnemyDefendAction
-AllyOffensiveMagicAction
-AllyHealingMagicAction
-AllyDefendAction

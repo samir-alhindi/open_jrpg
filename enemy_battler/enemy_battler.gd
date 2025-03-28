@@ -47,12 +47,12 @@ func decide_action() -> void:
 		self.deciding_finished.emit()
 		return
 	actionToPerform = actions[random.rand_weighted(actionChances)]
-	if actionToPerform is EnemyAttackAction:
-		if actionToPerform.actionTargetType == EnemyAttackAction.ActionTargetType.SINGLE_ALLY:
+	if actionToPerform is EnemyAttack:
+		if actionToPerform.actionTargetType == EnemyAttack.ActionTargetType.SINGLE_ALLY:
 			targetBattlers.append(get_tree().get_nodes_in_group("allies").pick_random())
-		elif actionToPerform.actionTargetType == EnemyAttackAction.ActionTargetType.ALL_ALLIES:
+		elif actionToPerform.actionTargetType == EnemyAttack.ActionTargetType.ALL_ALLIES:
 			targetBattlers.assign(get_tree().get_nodes_in_group("allies").duplicate())
-	elif actionToPerform is EnemyDefendAction:
+	elif actionToPerform is EnemyDefend:
 		targetBattlers.append(self)
 	await get_tree().create_timer(0.01).timeout
 	self.deciding_finished.emit()
@@ -100,7 +100,7 @@ func perform_action() -> void:
 			continue
 		# check action type:
 		#region Attack action:
-		if actionToPerform is EnemyAttackAction:
+		if actionToPerform is EnemyAttack:
 			# Play attack animation:
 			play_anim("attack")
 			# Calculate actual damage amount:
@@ -141,7 +141,7 @@ func perform_action() -> void:
 					return
 				#endregion
 		#region Defend action:
-		elif actionToPerform is EnemyDefendAction:
+		elif actionToPerform is EnemyDefend:
 			# Play defending animation:
 			play_anim("defend")
 			var defenseAmount: int = actionToPerform.defenseAmount

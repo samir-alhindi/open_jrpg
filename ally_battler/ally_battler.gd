@@ -1,7 +1,12 @@
+## Class for all the ally party members.
+
 class_name AllyBattler extends Battler
 
+## Parent of UI buttons and selection windows.
 @onready var control: Control = %Control
+## Menu where action names and battler names appear when selecting.
 @onready var selection_window: NinePatchRect = $UI/Control/SelectionWindow
+## [VboxContainer] that contains [Label]s with battler/action names.
 @onready var options_container: VBoxContainer = $UI/Control/SelectionWindow/OptionsContainer
 @onready var button_container: HBoxContainer = %ButtonContainer
 @onready var attack_button: Button = %AttackButton
@@ -36,15 +41,16 @@ class_name AllyBattler extends Battler
 @onready var name_: String = stats.name
 @onready var defeatedText: String = stats.defeatedText
 
-@onready var attackActions: Array[AllyAttackAction] = stats.attackActions
-@onready var defendAction: AllyDefendAction = stats.defendAction
-@onready var magicActions: Array[AllyMagicAction] = stats.magicActions
-@onready var items: Array[AllyItemAction] = stats.items.duplicate()
+@onready var attackActions: Array[Attack] = stats.attackActions
+@onready var defendAction: Defend = stats.defendAction
+@onready var magicActions: Array[Spell] = stats.magicActions
+@onready var items: Array[Item] = stats.items.duplicate()
 
 var actionToPerform: AllyAction
 var targetBattlers: Array[Battler]
 
 func _ready() -> void:
+	check_abstract_classes()
 	# Show UI:
 	$UI.show()
 	# Show battler name:
@@ -67,6 +73,24 @@ func _ready() -> void:
 	animated_sprite_2d.offset += stats.offset
 	#init other stuff:
 	opponents = "enemies"
+
+## This function checks if the user has accidentally put an abstract class obejct
+## into one of the actions lists.
+func check_abstract_classes() -> void:
+	# check all the spell actions:
+	for action: AllyAction in magicActions:
+		# Do nothing if it's one of the normal inetended child classes:
+		if action is HealingSpell or action is OffensiveSpell or action is CurseSpell:
+			pass
+		# This is an abstract class; Throw error:
+		else:
+			var name_ := action.actionName
+			var class_ = action.get_script().get_global_name()
+			var path_ := action.resource_path
+			var error := "The action \"%s\" at: \"%s\" is an instance of the abstract class \"%s\"."
+			error += "\nMake the action inherit \"OffensiveSpell\" or \"HealingSpell\" or \"CurseSpell\"."
+			var formated := error % [name_, path_, class_]
+			assert(false, formated)
 
 func decide_action() -> void:
 	SignalBus.cursor_come_to_me.emit(self.global_position, true)
@@ -112,7 +136,7 @@ func perform_action() -> void:
 	#endregion
 		# check action type:
 		#region Attack action:
-		if actionToPerform is AllyAttackAction:
+		if actionToPerform is Attack:
 			# Play attack animation:
 			play_anim("attack")
 			damage_actions(battler, false)
@@ -140,7 +164,7 @@ func perform_action() -> void:
 					return
 				#endregion
 		#region Defend action:
-		elif actionToPerform is AllyDefendAction:
+		elif actionToPerform is Defend:
 			# Play defending animation:
 			play_anim("defend")
 			var defenseAmount: int = actionToPerform.defenseAmount
@@ -159,8 +183,8 @@ func perform_action() -> void:
 			await get_tree().create_timer(0.1).timeout
 			#endregion
 		#region Magic action:
-		elif actionToPerform is AllyMagicAction:
-			if actionToPerform is AllyOffensiveMagicAction:
+		elif actionToPerform is Spell:
+			if actionToPerform is OffensiveSpell:
 				# Play animation:
 				play_anim("offensive_magic")
 				damage_actions(battler, true)
@@ -186,7 +210,7 @@ func perform_action() -> void:
 					if check_if_we_won() == true:
 						SignalBus.battle_won.emit()
 						return
-			elif actionToPerform is AllyHealingMagicAction:
+			elif actionToPerform is HealingSpell:
 				# Play aniamtion:
 				play_anim("heal_magic")
 				# Calculate actual damage amount:
@@ -206,13 +230,13 @@ func perform_action() -> void:
 				# Wait a moment:
 				await get_tree().create_timer(0.1).timeout
 			
-			elif actionToPerform is AllyCurseMagicAction:
+			elif actionToPerform is CurseSpell:
 				var effect: StatusEffect = actionToPerform.statusEffect
 				# Play aniamtion:
 				play_anim("offensive_magic")
 				
 				# Disabling status effect (sleep, paralysis, ect...):
-				if effect is DisablingStatusEffect:
+				if effect is StatusEffect:
 					# Check if target is already inflected with a disabling status effect:
 					if battler.disablingStatusEffect != null:
 						var text: String = battler.name_ + " already can't act !"
@@ -240,8 +264,8 @@ func perform_action() -> void:
 				await get_tree().create_timer(0.1).timeout
 			#endregion
 			
-		elif actionToPerform is AllyItemAction:
-			if actionToPerform is AllyHealingItemAction:
+		elif actionToPerform is Item:
+			if actionToPerform is Item:
 				# heal the target ally battler:
 				battler.health += actionToPerform.healthAmount
 				# Display text:

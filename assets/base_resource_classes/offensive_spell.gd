@@ -1,4 +1,6 @@
-class_name AllyOffensiveMagicAction extends AllyMagicAction
+## Class for offensive magic spells that allies can cast to damage enemies.
+
+class_name OffensiveSpell extends Spell
 
 @export_category("Magic attack data")
 ## How much damage this magic attack will deal.

@@ -1,4 +1,8 @@
-class_name AllyAttackAction extends AllyAction
+## Class for ally attack actions.
+##
+## Basically just an attack.
+
+class_name Attack extends AllyAction
 
 @export_category("Attack data")
 enum ActionTargetType {

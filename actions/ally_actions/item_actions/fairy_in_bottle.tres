@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AllyHealingItemAction" load_steps=3 format=3 uid="uid://baxl4pvy5tkf2"]
 
-[ext_resource type="Script" path="res://assets/base_resource_classes/ally_healing_item_action.gd" id="1_ahwpb"]
+[ext_resource type="Script" path="res://assets/base_resource_classes/item.gd" id="1_ahwpb"]
 [ext_resource type="AudioStream" uid="uid://wfjloebjkxrg" path="res://assets/SFX/fairy.wav" id="2_yo1ny"]
 
 [resource]
