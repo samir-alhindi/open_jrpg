@@ -14,3 +14,5 @@ res://assets/base_resource_classes/item.gd
 res://assets/base_resource_classes/offensive_spell.gd
 res://assets/base_resource_classes/enemy_stats.gd
 res://assets/base_resource_classes/enemy_action.gd
+res://stats/enemy_stats/eye.tres
+res://stats/enemy_stats/wind_knight.tres

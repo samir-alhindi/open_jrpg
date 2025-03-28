@@ -40,6 +40,7 @@ var defendAmount: int
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
+	check_abstract_classes()
 	randomize()
 	animated_sprite_2d.scale *= stats.texture_scale
 	random = RandomNumberGenerator.new()
@@ -182,6 +183,19 @@ func perform_action() -> void:
 	targetBattlers.clear()
 	# Signal to the battle node that we're done:
 	performing_action_finished.emit()
+
+func check_abstract_classes() -> void:
+	for action: EnemyAction in actions:
+		if action is EnemyAttack or action is EnemyDefend:
+			pass
+		# This is an abstract class; Throw error:
+		else:
+			var class_ = action.get_script().get_global_name()
+			var path_ := action.resource_path
+			var error := "The action at: \"%s\" is an instance of the abstract class \"%s\"."
+			error += "\nMake the action inherit \"EnemyAttack\" or \"EnemyDefend\"."
+			var formated := error % [path_, class_]
+			assert(false, formated)
 
 ## Handles the defense stat.
 func handle_defense() -> void:
