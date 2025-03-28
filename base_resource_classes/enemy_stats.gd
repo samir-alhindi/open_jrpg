@@ -1,4 +1,6 @@
 @tool
+## Contains all [EnemyBattler] data.
+
 class_name EnemyStats extends Resource
 
 @export_category("Main traits")

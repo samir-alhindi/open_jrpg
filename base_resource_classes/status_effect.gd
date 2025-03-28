@@ -18,7 +18,6 @@ class_name StatusEffect extends Resource
 ## The scale of the sprite.
 @export var scale: float = 1
 
-
 @export_category("Text")
 ## Text to display when status effect takes places:
 @export var text: String = "Is under a status effect !"

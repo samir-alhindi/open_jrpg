@@ -1,4 +1,8 @@
-## Class for all the ally party members.
+## Class for all the ally battlers (party member).
+##
+## This class takes an [AllyStats] resource that contains all of the ally's data, 
+## If you're trying to create an ally then create an [AllyStats] resoruce and then fill
+##  in everything and finaly add it into a battle [BattleData] resource.
 
 class_name AllyBattler extends Battler
 
@@ -6,20 +10,33 @@ class_name AllyBattler extends Battler
 @onready var control: Control = %Control
 ## Menu where action names and battler names appear when selecting.
 @onready var selection_window: NinePatchRect = $UI/Control/SelectionWindow
-## [VboxContainer] that contains [Label]s with battler/action names.
+## [VBoxContainer] that contains [Label]s with battler/action names.
 @onready var options_container: VBoxContainer = $UI/Control/SelectionWindow/OptionsContainer
+## [HBoxContainer] that contains all the UI buttons (attack button, defend button, ect...).
 @onready var button_container: HBoxContainer = %ButtonContainer
+## Displays list of possible attacks when clicked.
 @onready var attack_button: Button = %AttackButton
+## Displays list of possible spells when clicked.
 @onready var magic_button: Button = %MagicButton
+## Displays list of avalible items when clicked.
 @onready var item_button: Button = %ItemButton
+## handles the defense stat.
 @onready var defending_manager: Node = $DefendingDecider_Manager
+## Ally's health bar.
 @onready var health_bar: ProgressBar = $VBoxContainer/HealthBar
+## Ally's magic points bar.
 @onready var magic_bar: ProgressBar = $VBoxContainer/MagicBar
+## [AnimatedSprite2D] that displays all Ally animations.
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
-## Contains actions, sprites, UI theme, ect.
+## Displays the Ally's health.
+@onready var health_label: Label = %HealthLabel
+## Displays the Ally's MP (magic points).
+@onready var magic_points_label: Label = %MagicPointsLabel
+## Most important variable, 
+## contains actions, sprites, UI theme, ect...
 @export var stats: AllyStats
 
+## Ally dies when it reaches zero.
 @onready var health: int = stats.health:
 	set(value):
 		if value >= max_health:
@@ -28,25 +45,39 @@ class_name AllyBattler extends Battler
 			health = value
 		health_label.text = "Health: " + str(health)
 		health_bar.value = health
+## Required for casting magic spells.
 @onready var magicPoints: int = stats.magicPoints:
 	set(value):
 		magicPoints = value
 		magic_points_label.text = "Magic points: " + str(magicPoints)
 		magic_bar.value = value
+## Ally's health can't exceed this.
 @onready var max_health: int = stats.health
+## How much physical damage the Ally can do.
 @onready var strength: int = stats.strength
+## How potent this Ally's spells are.
 @onready var magicStrength: int = stats.magicStrength
+## Reduces damage from enemies.
 @onready var defense: int = stats.defense
+## The battler with the highest speed gets to act first.
 @onready var speed: int = stats.speed
+## Display name for the Ally in battle.
 @onready var name_: String = stats.name
+## Gets displayed when this Ally dies.
 @onready var defeatedText: String = stats.defeatedText
 
+## All the possible attacks this Ally can perform.
 @onready var attackActions: Array[Attack] = stats.attackActions
+## This action is performed when the Ally defends.
 @onready var defendAction: Defend = stats.defendAction
+## All spells that this Ally can use.
 @onready var magicActions: Array[Spell] = stats.magicActions
+## All items in this Ally's inventory.
 @onready var items: Array[Item] = stats.items.duplicate()
 
+## The [AllyAction] that this Ally will do when it can act.
 var actionToPerform: AllyAction
+## All the [Battler]s ([AllyBattler]s, [EnemyBattler]s) that this Ally's next action will target.
 var targetBattlers: Array[Battler]
 
 func _ready() -> void:
@@ -74,8 +105,8 @@ func _ready() -> void:
 	#init other stuff:
 	opponents = "enemies"
 
-## This function checks if the user has accidentally put an abstract class obejct
-## into one of the actions lists.
+## This method checks if the user has accidentally put an abstract class resource
+## into one of the [AllyAction] lists.
 func check_abstract_classes() -> void:
 	# check all the spell actions:
 	for action: AllyAction in magicActions:
@@ -92,6 +123,8 @@ func check_abstract_classes() -> void:
 			var formated := error % [name_, path_, class_]
 			assert(false, formated)
 
+## Allows player to choose an [AllyAction] ([Attack], [Defend], [Item], ect...)
+## that this [AllyBattler] will perform.
 func decide_action() -> void:
 	SignalBus.cursor_come_to_me.emit(self.global_position, true)
 	if items.size() <= 0:
@@ -102,6 +135,8 @@ func decide_action() -> void:
 	await get_tree().create_timer(0.5).timeout
 	attack_button.grab_focus()
 
+## Lets the [AllyBattler] perform the [AllyAction] that they chose in
+## [method AllyBattler.decide_action]
 func perform_action() -> void:
 	SignalBus.cursor_come_to_me.emit(self.global_position, true)
 	SignalBus.display_text.emit(name_+" "+actionToPerform.actionText)
@@ -284,6 +319,8 @@ func perform_action() -> void:
 	# Signal to the battle node that we're done:
 	performing_action_finished.emit()
 
+## Method that calculates damage done to [EnemyBattler]s by performing
+## [Attack]s and [OffensiveSpell]s.
 func damage_actions(battler: Battler, isMagic: bool) -> void:
 			# Calculate actual damage amount:
 			var damage: int
@@ -304,12 +341,11 @@ func damage_actions(battler: Battler, isMagic: bool) -> void:
 			# Play target battler hurt animation:
 			battler.play_anim("hurt")
 
-#For Displaying stats:
-@onready var health_label: Label = %HealthLabel
-@onready var magic_points_label: Label = %MagicPointsLabel
+## Updates health and magic points labels.
 func _process(_delta: float) -> void:
 	health_label.text = "Health: " + str(health)
 	magic_points_label.text = "Magic points: " + str(magicPoints)
 
+## Plays a UI sound.
 func on_button_focus_changed() -> void:
 	Audio.btn_mov.play()

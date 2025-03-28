@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EnemyStats" load_steps=55 format=3 uid="uid://u2ab0mjen2j5"]
 
-[ext_resource type="Script" path="res://assets/base_resource_classes/enemy_action.gd" id="1_0f6l8"]
+[ext_resource type="Script" path="res://base_resource_classes/enemy_action.gd" id="1_0f6l8"]
 [ext_resource type="Resource" uid="uid://lfvsqt8r3mpq" path="res://actions/enemy_actions/defend_actions/defend.tres" id="2_pxm65"]
 [ext_resource type="Resource" uid="uid://c0evk445emvmi" path="res://actions/enemy_actions/attack_actions/slash.tres" id="3_wxsbr"]
-[ext_resource type="Script" path="res://assets/base_resource_classes/enemy_stats.gd" id="4_4im50"]
+[ext_resource type="Script" path="res://base_resource_classes/enemy_stats.gd" id="4_4im50"]
 [ext_resource type="Texture2D" uid="uid://xa5ibyj82qwt" path="res://assets/sprites/wind_knights_sprites/idle/idle_1.png" id="5_6fd4g"]
 [ext_resource type="Texture2D" uid="uid://c78idq2gxbmnu" path="res://assets/sprites/wind_knights_sprites/1_atk/1_atk_1.png" id="5_44a0l"]
 [ext_resource type="Texture2D" uid="uid://dfkowue6ynvq" path="res://assets/sprites/wind_knights_sprites/1_atk/1_atk_2.png" id="6_isnlp"]

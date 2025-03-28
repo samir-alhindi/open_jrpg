@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyDefendAction" load_steps=3 format=3 uid="uid://lfvsqt8r3mpq"]
 
-[ext_resource type="Script" path="res://assets/base_resource_classes/enemy_defend.gd" id="1_ucv2g"]
+[ext_resource type="Script" path="res://base_resource_classes/enemy_defend.gd" id="1_ucv2g"]
 [ext_resource type="AudioStream" uid="uid://dvtjus8g8ufr4" path="res://assets/SFX/defend.wav" id="2_du74n"]
 
 [resource]

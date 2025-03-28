@@ -1,10 +1,25 @@
+## Class for every enemy battler.
+##
+## This class takes an [EnemyStats] resource that contains all of the enemy's data, 
+## If you're trying to create an enemy then create an [EnemyStats] resoruce and then fill
+##  in everything and finaly add it into a battle [BattleData] resource.
+
+
 class_name EnemyBattler extends Battler
 
+## Most important variable, conatins all the enemy's data.
 @export var stats: EnemyStats
+## 2nd most important variable, contains all the [EnemyAction] that this enemy
+## can possibly perform.
 @onready var actions: Array[EnemyAction] = stats.actions
 
+## This variable is related to how the enemy can randomaly choose [EnemyAction]s
+## from [member EnemyBattler.actions] based on specific weights, 
+## look into [method RandomNumberGenerator.rand_weighted] to learn more.
 var actionChances: Array = []
+## [RandomNumberGenerator] object.
 var random: RandomNumberGenerator
+## The action that this enemy will perfom when [method EnemyBattler.perform_action] is called.
 var actionToPerform: EnemyAction
 var targetBattlers: Array[Battler]
 
@@ -92,7 +107,7 @@ func perform_action() -> void:
 	Audio.action.play()
 	await SignalBus.text_window_closed
 	for battler: Battler in targetBattlers:
-		##Check if we're targeting a dead battler:
+		#Check if we're targeting a dead battler:
 		if battler.isDefeated:
 			SignalBus.display_text.emit(battler.name_+" has already been defeated !")
 			await SignalBus.text_window_closed
@@ -168,6 +183,7 @@ func perform_action() -> void:
 	# Signal to the battle node that we're done:
 	performing_action_finished.emit()
 
+## Handles the defense stat.
 func handle_defense() -> void:
 	if isDefending:
 		defense -= defendAmount
