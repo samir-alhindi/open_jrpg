@@ -58,12 +58,14 @@ func rename_enemies() -> void:
 			names[enemy.name_] = 1
 			enemy.name_ = enemy.name_ # Force label to update.
 
+@warning_ignore("shadowed_variable")
 func load_battlers(battlers: Array, battlerFile: PackedScene, circle: Marker2D) -> void:
 	for i: int in range(len(battlers)):
 		var allyScene: Battler = battlerFile.instantiate()
 		allyScene.stats = battlers[i]
 		$Battlers.add_child(allyScene)
 		var all: int = battlers.size()
+		@warning_ignore("integer_division")
 		var calc: float = 360 / all
 		circle.rotation_degrees = calc * i
 		# Spawn Battler in the middle if there's only 1:

@@ -24,8 +24,10 @@ var disablingStatusEffect: StatusEffect
 var opponents: StringName
 
 ## Emited after the battler has chosen an action to perform.
+@warning_ignore("unused_signal")
 signal deciding_finished
 ## Emited after the battler has finished acting.
+@warning_ignore("unused_signal")
 signal performing_action_finished
 
 func _ready() -> void:

@@ -115,6 +115,7 @@ func check_abstract_classes() -> void:
 			pass
 		# This is an abstract class; Throw error:
 		else:
+			@warning_ignore("shadowed_variable")
 			var name_ := action.actionName
 			var class_ = action.get_script().get_global_name()
 			var path_ := action.resource_path
@@ -250,6 +251,7 @@ func perform_action() -> void:
 				play_anim("heal_magic")
 				# Calculate actual damage amount:
 				var healingAmount: int
+				@warning_ignore("integer_division")
 				healingAmount = (actionToPerform.healingAmount + magicStrength / 2)
 				# heal the target ally battler:
 				battler.health += healingAmount
@@ -274,6 +276,7 @@ func perform_action() -> void:
 				if effect is StatusEffect:
 					# Check if target is already inflected with a disabling status effect:
 					if battler.disablingStatusEffect != null:
+						@warning_ignore("confusable_local_declaration")
 						var text: String = battler.name_ + " already can't act !"
 						SignalBus.display_text.emit(text)
 						await SignalBus.text_window_closed

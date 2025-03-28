@@ -16,3 +16,4 @@ res://assets/base_resource_classes/enemy_stats.gd
 res://assets/base_resource_classes/enemy_action.gd
 res://stats/enemy_stats/eye.tres
 res://stats/enemy_stats/wind_knight.tres
+res://battle/battle.gd
